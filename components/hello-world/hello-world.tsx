@@ -5,10 +5,9 @@ import './hello-world.scss';
 export default class HelloWorld extends Vue {
 
   render() {
-    // return <div className="xl-hello-world">
-    //   HelloWrold 组件内容...
-    // </div>
-    return '';
+    return <div className="xl-hello-world">
+      HelloWrold 组件内容...
+    </div>
   }
 
 }

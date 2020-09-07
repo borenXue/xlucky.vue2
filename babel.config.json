@@ -1,9 +1,9 @@
 {
   "presets": [
-    "@babel/env",
-    "@babel/typescript"
+    "@babel/env"
   ],
   "plugins": [
+    "transform-vue-tsx",
     ["@babel/proposal-decorators", {
       "legacy": true
     }],

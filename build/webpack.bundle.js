@@ -1,7 +1,7 @@
 const path = require('path');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
-const sourceMap = false; // process.env.NODE_ENV !== 'production';
+const sourceMap = process.env.NODE_ENV !== 'production';
 
 function resolve(fileOrDir) {
   return path.resolve(process.cwd(), fileOrDir)
@@ -47,7 +47,6 @@ module.exports = {
         use: [
           { loader: 'cache-loader', options: { cacheDirectory: '.cache/ts-loader' } },
           { loader: 'babel-loader' },
-          // ts-loader ??   transpileOnly=true  appendTsSuffixTo=['\\.vue$']
         ],
       },
       {

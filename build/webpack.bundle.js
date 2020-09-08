@@ -2,6 +2,9 @@ const path = require('path');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 const sourceMap = process.env.NODE_ENV !== 'production';
+const devtool = sourceMap ? (
+  process.env.WEBPACK_DEV_SERVER ? 'inline-source-map' : 'cheap-source-map'
+) : undefined;
 
 function resolve(fileOrDir) {
   return path.resolve(process.cwd(), fileOrDir)
@@ -16,11 +19,19 @@ module.exports = {
     filename: 'index.js',
     libraryTarget: 'commonjs2',
   },
+  devtool,
+  devServer: {
+    contentBase: resolve('dist'),
+    compress: false,
+    disableHostCheck: true,
+    host: '0.0.0.0',  
+    port: 9001
+  },
   externals: {
-    vue: 'vue'
+    vue: 'Vue'
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.json', '.scss'],
+    extensions: ['.js', '.ts', '.tsx', '.json', '.scss', '.sass'],
   },
   plugins: [
     new ProgressBarPlugin(),

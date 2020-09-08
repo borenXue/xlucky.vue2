@@ -1,17 +1,16 @@
 {
   "name": "xlucky2",
   "version": "0.0.1",
-  "description": "High-end components library based on vue2.0 && element-ui.",
+  "description": "Higher-level components library based on vue2.0 && element-ui.",
   "main": "dist/index.js",
-  "directories": {
-    "doc": "docs"
-  },
   "scripts": {
-    "temp": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
-    "build": "cross-env NODE_ENV=development npm run build:bundle",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.docsite.js",
+    "prebuild": "rm -rf dist && echo \"TODO: components.json->src/index.ts & watch\"",
+    "build": "cross-env NODE_ENV=development npm-run-all build:*",
     "build:bundle": "webpack --config build/webpack.bundle.js",
-    "build:docsite": "",
-    "lintAndFix": "",
+    "build:components": "echo \"TODO:\"",
+    "build:docsite": "webpack --config build/webpack.docsite.js",
+    "lintFix": "echo \"TODO:\"",
     "test": "echo \"no test specified\""
   },
   "browserslist": [
@@ -54,8 +53,11 @@
     "babel-plugin-transform-vue-tsx": "^3510.0.3",
     "cache-loader": "^4.1.0",
     "cross-env": "^7.0.2",
+    "element-ui": "^2.13.2",
+    "html-webpack-plugin": "^4.4.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.3.0",
+    "npm-run-all": "^4.1.5",
     "postcss-loader": "^3.0.0",
     "progress-bar-webpack-plugin": "^2.1.0",
     "sass": "^1.26.10",
@@ -63,14 +65,18 @@
     "stylelint": "^13.7.0",
     "stylelint-webpack-plugin": "^2.1.0",
     "typescript": "^4.0.2",
+    "vue": "^2.6.12",
     "vue-loader": "^15.9.3",
     "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "peerDependencies": {
+    "element-ui": "^2.13.2",
+    "vue": "^2.6.12"
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "element-ui": "^2.13.2",
-    "vue": "^2.6.12",
     "vue-class-component": "^7.2.5",
     "vue-property-decorator": "^9.0.0"
   }

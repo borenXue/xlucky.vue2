@@ -1,14 +1,12 @@
 const path = require('path');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { resolve } = require('./helper');
 
 const sourceMap = process.env.NODE_ENV !== 'production';
 const devtool = sourceMap ? (
   process.env.WEBPACK_DEV_SERVER ? 'inline-source-map' : 'cheap-source-map'
 ) : undefined;
-
-function resolve(fileOrDir) {
-  return path.resolve(process.cwd(), fileOrDir)
-}
 
 module.exports = {
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
@@ -21,7 +19,6 @@ module.exports = {
   },
   devtool,
   devServer: {
-    contentBase: resolve('dist'),
     compress: false,
     disableHostCheck: true,
     host: '0.0.0.0',  
@@ -34,6 +31,7 @@ module.exports = {
     extensions: ['.js', '.ts', '.tsx', '.json', '.scss', '.sass'],
   },
   plugins: [
+    new MiniCssExtractPlugin({ filename: 'index.css' }),
     new ProgressBarPlugin(),
   ],
   module: {
@@ -58,11 +56,13 @@ module.exports = {
         use: [
           { loader: 'cache-loader', options: { cacheDirectory: '.cache/ts-loader' } },
           { loader: 'babel-loader' },
+          { loader: 'ts-loader', options: { transpileOnly: true } },
         ],
       },
       {
         test: /\.s(c|a)ss$/,
         use: [
+          { loader: MiniCssExtractPlugin.loader },
           { loader: 'css-loader', options: { sourceMap, importLoaders: 2 } },
           { loader: 'postcss-loader', options: { sourceMap } },
           { loader: 'sass-loader', options: { sourceMap } },

@@ -5,6 +5,8 @@
     "module": "esnext",
     "sourceMap": true,
     "jsx": "preserve",
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
     "importHelpers": true,
     "moduleResolution": "node",
     "experimentalDecorators": true

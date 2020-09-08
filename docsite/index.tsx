@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import HelloWorld from '../components/hello-world/hello-world'
+import xlucky from '../src/index';
 
 new Vue({
-  render: h => h(HelloWorld)
+  render: h => h(xlucky.HelloWorld)
 }).$mount('#app')

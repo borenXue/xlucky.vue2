@@ -1,0 +1,106 @@
+html, body, #docsite-layout {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.el-dropdown-menu {
+  &.nav-lang-list {
+    li {
+      min-width: 60px;
+      text-align: center;
+    }
+  }
+}
+
+#docsite-layout {
+  display: flex;
+  flex-direction: column;
+
+  .router-link-exact-active {
+    color: #409EFF !important;
+    * {
+      color: #409EFF !important;
+    }
+  }
+
+  .my-el-menu-vertical:not(.el-menu--collapse) {
+    width: 200px;
+  }
+
+  .top-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    box-shadow: 0 1px 1px #f0f1f2;
+    height: 60px;
+    .button-box {
+      display: flex;
+      height: 100%;
+      font-size: 18px;
+      .button-item {
+        padding: 0 5px;
+        margin-right: 50px;
+        text-align: center;
+        cursor: pointer;
+        font-size: 18px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        box-sizing: border-box;
+        &.is-active {
+          color: #409EFF;
+          border-bottom: 2px solid #409EFF;
+        }
+      }
+
+      .nav-lang {
+        cursor: pointer;
+        padding: 0 20px;
+        height: 100%;
+        margin-left: -20px;
+        .el-dropdown-selfdefine {
+          height: 100%;
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+  }
+
+  .layout-main {
+    flex: 1;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    display: flex;
+    #layout-sidebar {
+      width: 240px;
+      padding: 0 0 0 30px;
+      overflow-y: scroll;
+      .el-menu {
+        border: 0;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100% !important;
+      }
+      .router-link-exact-active {
+        border-right: 3px solid #4ba3ff !important;
+      }
+      .el-submenu__title {
+        font-weight: bolder;
+        font-size: 18px;
+      }
+      .el-submenu .el-menu-item {
+        padding-left: 20px !important;
+      }
+    }
+    .layout-content {
+      flex: 1;
+      padding: 0 30px 30px 50px;
+    }
+  }
+}

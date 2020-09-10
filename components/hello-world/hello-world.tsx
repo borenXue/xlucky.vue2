@@ -6,7 +6,7 @@ export default class HelloWorld extends Vue {
 
   render() {
     return <div className="xl-hello-world">
-      HelloWrold 组件内容...
+      Hello Wrold ...
     </div>
   }
 

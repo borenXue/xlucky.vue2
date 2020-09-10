@@ -9,12 +9,23 @@
     "resolveJsonModule": true,
     "importHelpers": true,
     "moduleResolution": "node",
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "types": [
+      "webpack",
+      "node",
+      "element-ui"
+    ],
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable"
+    ]
   },
   "include": [
+    "types/**/*",
     "src/**/*",
     "components/**/*",
-    "site/**/*"
+    "docsite/**/*"
   ],
   "exclude": [
     "node_modules",

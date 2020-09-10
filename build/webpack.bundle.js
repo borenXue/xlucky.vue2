@@ -51,7 +51,7 @@ module.exports = {
       //   options: { cache: true, extensions: ['.ts', '.tsx'] },
       // },
       {
-        test: /\.(ts|js)x?$/,
+        test: /\.(ts|js)x?$/i,
         exclude: /(node_modules|bower_components)/,
         use: [
           { loader: 'cache-loader', options: { cacheDirectory: '.cache/ts-loader' } },
@@ -60,7 +60,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.s(c|a)ss$/,
+        test: /\.(css|scss|sass)$/i,
         use: [
           { loader: MiniCssExtractPlugin.loader },
           { loader: 'css-loader', options: { sourceMap, importLoaders: 2 } },

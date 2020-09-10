@@ -1,6 +1,7 @@
 
 local-files/
 lib/
+src/index.ts
 
 # Created by https://www.toptal.com/developers/gitignore/api/macos,visualstudiocode,sublimetext,webstorm,node,windows
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,visualstudiocode,sublimetext,webstorm,node,windows

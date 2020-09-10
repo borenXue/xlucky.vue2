@@ -1,12 +1,13 @@
 {
-  "presets": [
-    "@babel/env"
-  ],
+  "presets": ["@babel/env"],
   "plugins": [
     "transform-vue-tsx",
-    ["@babel/proposal-decorators", {
-      "legacy": true
-    }],
+    [
+      "@babel/proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
     "@babel/proposal-class-properties",
     "@babel/proposal-object-rest-spread"
   ]

@@ -1,9 +1,8 @@
-
 export function ajax(url: string) {
   return new Promise((resolve, reject) => {
     (window as any).markdownContentCached = (window as any).markdownContentCached || {};
     const cache = (window as any).markdownContentCached;
-    if (cache && cache[url]) {
+    if (cache[url]) {
       resolve(cache[url]);
       return;
     }
@@ -17,8 +16,10 @@ export function ajax(url: string) {
         } else {
           reject(new Error('responseText not string or is empty string.'));
         }
-      } else { reject(e); }
-    }
+      } else {
+        reject(e);
+      }
+    };
     xhr.send();
   });
 }

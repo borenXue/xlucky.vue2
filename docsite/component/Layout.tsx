@@ -8,19 +8,18 @@ export default class DocsiteLayout extends Vue {
   @Prop() readonly sidebarList!: [];
 
   render() {
-    return <div id="docsite-layout">
+    return (
+      <div id='docsite-layout'>
+        <LayoutHeader current-lang={this.lang} />
 
-      <LayoutHeader current-lang={this.lang} />
+        <div class='layout-main'>
+          <LayoutSidebar sidebar-list={this.sidebarList} />
 
-      <div class="layout-main">
-        <LayoutSidebar sidebar-list={this.sidebarList} />
-
-        <div class="layout-content">
-          <router-view />
+          <div class='layout-content'>
+            <router-view />
+          </div>
         </div>
       </div>
-
-    </div>
+    );
   }
-
 }

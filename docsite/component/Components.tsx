@@ -14,13 +14,16 @@ export default class Components extends Vue {
     ajax(this.markdownFile)
       .then((text) => {
         this.markdownContent = text as string;
-      }).catch(err => console.error(err))
+      })
+      // eslint-disable-next-line no-console
+      .catch((err) => console.error(err));
   }
 
   render() {
-    return <div class="view-component">  
-      <Markdown md-content={this.markdownContent} />
-    </div>;
+    return (
+      <div class='view-component'>
+        <Markdown md-content={this.markdownContent} />
+      </div>
+    );
   }
-
 }

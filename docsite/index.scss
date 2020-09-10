@@ -1,4 +1,6 @@
-html, body, #docsite-layout {
+html,
+body,
+#docsite-layout {
   height: 100%;
   width: 100%;
   padding: 0;
@@ -19,9 +21,10 @@ html, body, #docsite-layout {
   flex-direction: column;
 
   .router-link-exact-active {
-    color: #409EFF !important;
+    color: #409eff !important;
+
     * {
-      color: #409EFF !important;
+      color: #409eff !important;
     }
   }
 
@@ -36,25 +39,27 @@ html, body, #docsite-layout {
     padding: 0 40px;
     box-shadow: 0 1px 1px #f0f1f2;
     height: 60px;
+
     .button-box {
       display: flex;
       height: 100%;
       font-size: 18px;
+
       .button-item {
         padding: 0 5px;
         margin-right: 50px;
         text-align: center;
         cursor: pointer;
         font-size: 18px;
-
         display: flex;
         align-items: center;
         justify-content: center;
         height: 100%;
         box-sizing: border-box;
+
         &.is-active {
-          color: #409EFF;
-          border-bottom: 2px solid #409EFF;
+          color: #409eff;
+          border-bottom: 2px solid #409eff;
         }
       }
 
@@ -63,6 +68,7 @@ html, body, #docsite-layout {
         padding: 0 20px;
         height: 100%;
         margin-left: -20px;
+
         .el-dropdown-selfdefine {
           height: 100%;
           display: flex;
@@ -77,27 +83,33 @@ html, body, #docsite-layout {
     padding-top: 20px;
     padding-bottom: 30px;
     display: flex;
+
     #layout-sidebar {
       width: 240px;
       padding: 0 0 0 30px;
       overflow-y: scroll;
+
       .el-menu {
         border: 0;
         width: 100%;
         box-sizing: border-box;
         height: 100% !important;
       }
+
       .router-link-exact-active {
         border-right: 3px solid #4ba3ff !important;
       }
+
       .el-submenu__title {
         font-weight: bolder;
         font-size: 18px;
       }
+
       .el-submenu .el-menu-item {
         padding-left: 20px !important;
       }
     }
+
     .layout-content {
       flex: 1;
       padding: 0 30px 30px 50px;

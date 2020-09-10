@@ -10,25 +10,9 @@
     "importHelpers": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    "types": [
-      "webpack",
-      "node",
-      "element-ui"
-    ],
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable"
-    ]
+    "types": ["webpack", "node", "element-ui"],
+    "lib": ["esnext", "dom", "dom.iterable"]
   },
-  "include": [
-    "types/**/*",
-    "src/**/*",
-    "components/**/*",
-    "docsite/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts"
-  ]
+  "include": ["types/**/*", "src/**/*", "components/**/*", "docsite/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }

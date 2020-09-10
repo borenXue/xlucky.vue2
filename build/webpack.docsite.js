@@ -14,10 +14,12 @@ delete webpackBundleConfig.output.libraryTarget;
 
 webpackBundleConfig.devServer.port = '9000';
 
-webpackBundleConfig.plugins.push(new HtmlWebpackPlugin({
-  title: pkg.name,
-  filename: isNpmStartDevMode ? 'index.html' :  'index.html',
-  template: 'docsite/index.html'
-}));
+webpackBundleConfig.plugins.push(
+  new HtmlWebpackPlugin({
+    title: pkg.name,
+    filename: isNpmStartDevMode ? 'index.html' : 'index.html',
+    template: 'docsite/index.html',
+  }),
+);
 
 module.exports = webpackBundleConfig;

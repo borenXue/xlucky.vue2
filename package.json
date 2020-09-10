@@ -11,7 +11,8 @@
     "build:docsite": "webpack --config build/webpack.docsite.js",
     "clean": "rm -rf dist lib",
     "componentsJson": "node build/prebuild.js",
-    "lintFix": "echo \"TODO:\"",
+    "lint": "eslint . --ext .tsx,.ts,.js --format './node_modules/eslint-friendly-formatter/index.js' && stylelint ./",
+    "lint-fix": "eslint . --ext .tsx,.ts,.js --fix && stylelint ./ --fix && prettier --write --ignore-path .gitignore .",
     "test": "echo \"no test specified\""
   },
   "browserslist": [
@@ -20,11 +21,22 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "npm test"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
-    "*": "your-cmd"
+    "*.{tsx|ts|js}": [
+      "eslint . --ext .tsx,.ts,.js, --fix",
+      "git add"
+    ],
+    "*.{scss|css|sass}": [
+      "stylelint ./ --fix",
+      "git add"
+    ],
+    "*": [
+      "prettier --write --ignore-unknown",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -47,7 +59,10 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-typescript": "^7.10.4",
+    "@typescript-eslint/eslint-plugin": "^4.1.0",
+    "@typescript-eslint/parser": "^4.1.0",
     "autoprefixer": "^9.8.6",
+    "babel-eslint": "^10.1.0",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-loader": "^8.1.0",
     "babel-plugin-syntax-jsx": "^6.18.0",
@@ -57,6 +72,15 @@
     "chokidar": "^3.4.2",
     "cross-env": "^7.0.2",
     "element-ui": "^2.13.2",
+    "eslint": "^7.8.1",
+    "eslint-config-alloy": "^3.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-stylelint": "^12.0.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.6",
     "html-webpack-plugin": "^4.4.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.3.0",
@@ -66,14 +90,17 @@
     "mini-css-extract-plugin": "^0.11.0",
     "npm-run-all": "^4.1.5",
     "postcss-loader": "^3.0.0",
+    "prettier": "^2.1.1",
     "progress-bar-webpack-plugin": "^2.1.0",
     "sass": "^1.26.10",
     "sass-loader": "^10.0.2",
     "stylelint": "^13.7.0",
+    "stylelint-config-standard": "^20.0.0",
     "stylelint-webpack-plugin": "^2.1.0",
     "ts-loader": "^8.0.3",
     "typescript": "^4.0.2",
     "vue": "^2.6.12",
+    "vue-eslint-parser": "^7.1.0",
     "vue-loader": "^15.9.3",
     "vue-router": "^3.4.3",
     "vue-simple-markdown": "^1.1.4",

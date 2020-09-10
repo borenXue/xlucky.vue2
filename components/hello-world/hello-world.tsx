@@ -3,11 +3,7 @@ import './hello-world.scss';
 
 @Component({})
 export default class HelloWorld extends Vue {
-
   render() {
-    return <div className="xl-hello-world">
-      Hello Wrold ...
-    </div>
+    return <div className='xl-hello-world'>Hello Wrold ...</div>;
   }
-
 }

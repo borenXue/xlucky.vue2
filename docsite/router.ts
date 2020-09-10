@@ -3,7 +3,7 @@ import Design from './component/Design';
 import Layout from './component/Layout';
 import Components from './component/Components';
 import Document from './component/Document';
-import componentsJson from '../components.json'
+import componentsJson from '../components.json';
 import { RouteConfigSingleView } from 'vue-router/types/router';
 
 function CamelCase(str: string) {
@@ -20,14 +20,14 @@ for (const key in componentsJson) {
     meta: {
       title: {
         'zh-CN': CamelCase(key),
-        'en-US': CamelCase(key)
-      }
+        'en-US': CamelCase(key),
+      },
     },
     props: {
       markdownFile: `components/${key}/${key}`,
       currentComponentName: key,
-    }
-  })
+    },
+  });
 }
 
 const config = [
@@ -38,8 +38,8 @@ const config = [
     meta: {
       title: {
         'zh-CN': '用户指南',
-        'en-US': 'User Guide'
-      }
+        'en-US': 'User Guide',
+      },
     },
     children: [
       {
@@ -47,35 +47,35 @@ const config = [
         meta: {
           title: {
             'zh-CN': '更新日志',
-            'en-US': 'Changelog'
-          }
+            'en-US': 'Changelog',
+          },
         },
         component: Document,
-        props: { markdownFile: 'CHANGELOG' }
+        props: { markdownFile: 'CHANGELOG' },
       },
       {
         path: '/user-guide/quickstart',
         meta: {
           title: {
             'zh-CN': '快速入门',
-            'en-US': 'Quick Start'
-          }
+            'en-US': 'Quick Start',
+          },
         },
         component: Document,
-        props: { markdownFile: 'docs/quickstart' }
+        props: { markdownFile: 'docs/quickstart' },
       },
       {
         path: '/user-guide/custom-theme',
         meta: {
           title: {
             'zh-CN': '自定义主题',
-            'en-US': 'Custom Theme'
-          }
+            'en-US': 'Custom Theme',
+          },
         },
         component: Document,
-        props: { markdownFile: 'docs/custom-theme' }
-      }
-    ]
+        props: { markdownFile: 'docs/custom-theme' },
+      },
+    ],
   },
   {
     path: '/components',
@@ -83,29 +83,29 @@ const config = [
     meta: {
       title: {
         'zh-CN': '组件',
-        'en-US': 'Components'
-      }
+        'en-US': 'Components',
+      },
     },
-    children: componentsRouterList
-  }
+    children: componentsRouterList,
+  },
 ];
 
 // 多语言支持 - 左侧栏
 function getSidebarListAll(lang: string) {
   function getSidebarItem(routerItem: any, lang: string) {
     return {
-      title: routerItem.meta && routerItem.meta.title ? routerItem.meta.title[lang] : '',
+      title: routerItem?.meta && routerItem.meta.title ? routerItem.meta.title[lang] : '',
       path: `/${lang}${routerItem.path}`,
-      children: (routerItem.children || []).map((item: any) => getSidebarItem(item, lang))
+      children: (routerItem.children || []).map((item: any) => getSidebarItem(item, lang)),
     };
   }
-  return config.map(item => getSidebarItem(item, lang));
+  return config.map((item) => getSidebarItem(item, lang));
 }
 
 // 多语言支持 - 路由
 function toRouterConfig(item: RouteConfigSingleView, langs: string[], sidebarList: any): RouteConfigSingleView[] {
   const children = [];
-  for (const ii of (item.children || [])) {
+  for (const ii of item.children || []) {
     children.push(...toRouterConfig(ii, langs, sidebarList));
   }
   const result = [];
@@ -114,19 +114,20 @@ function toRouterConfig(item: RouteConfigSingleView, langs: string[], sidebarLis
       path: `/${lang}${item.path}`,
       component: item.component,
       props: {
-        lang, sidebarList,
+        lang,
+        sidebarList,
         currentComponentName: item.props ? (item.props as any).currentComponentName : '',
         markdownFile: item.props ? (item.props as any).markdownFile + `.${lang}.md` : '',
       },
       children,
       meta: {
         title: !item.meta || !item.meta.title ? '' : item.meta.title[lang],
-      }
+      },
     };
     if (item.redirect) {
       (langItem as any).redirect = `/${lang}${item.redirect}`;
     }
-    result.push(langItem)
+    result.push(langItem);
   }
   return result;
 }
@@ -134,12 +135,12 @@ function toRouterConfig(item: RouteConfigSingleView, langs: string[], sidebarLis
 export interface SidebarItem {
   title: string;
   path: string;
-  children: SidebarItem[]
+  children: SidebarItem[];
 }
 
 export default function createRouterConfig(lang: string) {
   const routerConfig: RouteConfigSingleView[] = [];
-  const sidebarList = getSidebarListAll(lang)
+  const sidebarList = getSidebarListAll(lang);
   for (const item of [
     ...config,
     {
@@ -147,10 +148,10 @@ export default function createRouterConfig(lang: string) {
       meta: {
         title: {
           'zh-CN': '设计',
-          'en-US': 'Design'
-        }
+          'en-US': 'Design',
+        },
       },
-      component: Design
+      component: Design,
     },
   ]) {
     routerConfig.push(...toRouterConfig(item, [lang], sidebarList));

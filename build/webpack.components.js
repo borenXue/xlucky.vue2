@@ -5,13 +5,11 @@ const { resolve, CamelCase } = require('./helper');
 const components = require('../components.json');
 
 const sourceMap = process.env.NODE_ENV !== 'production';
-const devtool = sourceMap ? (
-  process.env.WEBPACK_DEV_SERVER ? 'inline-source-map' : 'cheap-source-map'
-) : undefined;
+const devtool = sourceMap ? (process.env.WEBPACK_DEV_SERVER ? 'inline-source-map' : 'cheap-source-map') : undefined;
 
 const entries = {};
 for (const key in components) {
-  entries[CamelCase(key)] = resolve(components[key])
+  entries[CamelCase(key)] = resolve(components[key]);
 }
 
 module.exports = {
@@ -26,15 +24,12 @@ module.exports = {
   },
   devtool,
   externals: {
-    vue: 'Vue'
+    vue: 'Vue',
   },
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.json', '.scss', '.sass'],
   },
-  plugins: [
-    new MiniCssExtractPlugin({ filename: '[name]/style/index.css' }),
-    new ProgressBarPlugin(),
-  ],
+  plugins: [new MiniCssExtractPlugin({ filename: '[name]/style/index.css' }), new ProgressBarPlugin()],
   module: {
     rules: [
       // {
@@ -54,11 +49,7 @@ module.exports = {
       {
         test: /\.(ts|js)x?$/,
         exclude: /(node_modules|bower_components)/,
-        use: [
-          { loader: 'cache-loader', options: { cacheDirectory: '.cache/ts-loader' } },
-          { loader: 'babel-loader' },
-          { loader: 'ts-loader', options: { transpileOnly: true } },
-        ],
+        use: [{ loader: 'cache-loader', options: { cacheDirectory: '.cache/ts-loader' } }, { loader: 'babel-loader' }, { loader: 'ts-loader', options: { transpileOnly: true } }],
       },
       {
         test: /\.s(c|a)ss$/,
@@ -71,4 +62,4 @@ module.exports = {
       },
     ],
   },
-}
+};

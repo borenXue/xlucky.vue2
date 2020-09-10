@@ -8,8 +8,8 @@ import createRouterConfig from './router';
 
 @Component({})
 class App extends Vue {
-  render () {
-    return <router-view />
+  render() {
+    return <router-view />;
   }
 }
 
@@ -17,12 +17,8 @@ Vue.use(VueSimpleMarkdown);
 
 new Vue({
   router: new VueRouter({
-    routes: [
-      ...createRouterConfig('zh-CN'),
-      ...createRouterConfig('en-US'),
-      { path: '/', redirect: '/zh-CN/synopsis' },
-    ],
+    routes: [...createRouterConfig('zh-CN'), ...createRouterConfig('en-US'), { path: '/', redirect: '/zh-CN/synopsis' }],
     mode: 'hash',
   }),
-  render: h => h(App)
-}).$mount('#app')
+  render: (h) => h(App),
+}).$mount('#app');

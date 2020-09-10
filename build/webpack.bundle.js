@@ -1,12 +1,11 @@
 const path = require('path');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const StylelintWebpackPlugin = require('stylelint-webpack-plugin');
 const { resolve } = require('./helper');
 
 const sourceMap = process.env.NODE_ENV !== 'production';
-const devtool = sourceMap ? (
-  process.env.WEBPACK_DEV_SERVER ? 'inline-source-map' : 'cheap-source-map'
-) : undefined;
+const devtool = sourceMap ? (process.env.WEBPACK_DEV_SERVER ? 'inline-source-map' : 'cheap-source-map') : undefined;
 
 module.exports = {
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
@@ -21,43 +20,35 @@ module.exports = {
   devServer: {
     compress: false,
     disableHostCheck: true,
-    host: '0.0.0.0',  
-    port: 9001
+    host: '0.0.0.0',
+    port: 9001,
   },
   externals: {
-    vue: 'Vue'
+    vue: 'Vue',
   },
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.json', '.scss', '.sass'],
   },
-  plugins: [
-    new MiniCssExtractPlugin({ filename: 'index.css' }),
-    new ProgressBarPlugin(),
-  ],
+  plugins: [new StylelintWebpackPlugin(), new MiniCssExtractPlugin({ filename: 'index.css' }), new ProgressBarPlugin()],
   module: {
     rules: [
-      // {
-      //   enforce: 'pre',
-      //   test: /\.tsx?$/,
-      //   exclude: [/node_modules/],
-      //   loader: 'eslint-loader',
-      //   options: { cache: true, extensions: ['.ts', '.tsx'] },
-      // },
-      // {
-      //   enforce: 'pre',
-      //   test: /\.s(c|a)ss$/,
-      //   exclude: [/node_modules/],
-      //   loader: 'eslint-loader',
-      //   options: { cache: true, extensions: ['.ts', '.tsx'] },
-      // },
+      {
+        enforce: 'pre',
+        test: /\.(ts|tsx|js)$/i,
+        exclude: /(node_modules|bower_components)/,
+        use: [
+          {
+            loader: 'eslint-loader',
+            options: {
+              formatter: require('eslint-friendly-formatter'),
+            },
+          },
+        ],
+      },
       {
         test: /\.(ts|js)x?$/i,
         exclude: /(node_modules|bower_components)/,
-        use: [
-          { loader: 'cache-loader', options: { cacheDirectory: '.cache/ts-loader' } },
-          { loader: 'babel-loader' },
-          { loader: 'ts-loader', options: { transpileOnly: true } },
-        ],
+        use: [{ loader: 'cache-loader', options: { cacheDirectory: '.cache/ts-loader' } }, { loader: 'babel-loader' }, { loader: 'ts-loader', options: { transpileOnly: true } }],
       },
       {
         test: /\.(css|scss|sass)$/i,
@@ -70,4 +61,4 @@ module.exports = {
       },
     ],
   },
-}
+};

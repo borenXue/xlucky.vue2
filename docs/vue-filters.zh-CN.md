@@ -1,0 +1,63 @@
+## Vue 过滤器
+
+### Vue 过滤器: `filterArray`
+
+```vue
+<!-- livedemo:
+  {
+    "title": "a"
+  }
+-->
+<template>
+  <div class="demo-001"></div>
+
+  <style>
+    .demo-001 {
+      color: red;
+    }
+  </style>
+
+  <script>
+    export default {
+      data() {
+        return {
+          currentTag: 'it',
+          newTag: 'abc',
+
+          tagList: [
+            { id: 'it', name: '科技' },
+            { id: 'tec', name: '教育' },
+            { id: 'war', name: '战争' },
+          ],
+        };
+      },
+    };
+  </script>
+</template>
+```
+
+- 又一个
+
+```vue
+<template>
+  <div>{{ currentTag | filterArray(tagList, 'key', 'value') }}</div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      currentTag: 'it',
+
+      tagList: [
+        { key: 'it', value: '科技' },
+        { key: 'tec', value: '教育' },
+        { key: 'war', value: '战争' },
+      ],
+    };
+  },
+};
+</script>
+```
+
+a

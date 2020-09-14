@@ -1,6 +1,7 @@
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
 import { ajax } from './helper';
-import Markdown from './Markdown';
+// import Markdown from './Markdown';
+import parseMarkdown from '../md/index';
 
 @Component({})
 export default class Components extends Vue {
@@ -20,9 +21,12 @@ export default class Components extends Vue {
   }
 
   render() {
+    const htmlContent = parseMarkdown(this.markdownContent);
+
     return (
       <div class='view-component'>
-        <Markdown md-content={this.markdownContent} />
+        {/* <Markdown md-content={this.markdownContent} /> */}
+        <div domPropsInnerHTML={htmlContent} />
       </div>
     );
   }

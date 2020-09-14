@@ -65,6 +65,17 @@ const config = [
         props: { markdownFile: 'docs/quickstart' },
       },
       {
+        path: '/user-guide/vue-filters',
+        meta: {
+          title: {
+            'zh-CN': 'Vue 过滤器',
+            'en-US': 'Vue Filters',
+          },
+        },
+        component: Document,
+        props: { markdownFile: 'docs/vue-filters' },
+      },
+      {
         path: '/user-guide/custom-theme',
         meta: {
           title: {

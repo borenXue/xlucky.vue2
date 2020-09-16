@@ -26,10 +26,6 @@ export default class Components extends Vue {
   }
 
   render() {
-    return (
-      <div class='view-component'>
-        <div domPropsInnerHTML={this.html} />
-      </div>
-    );
+    return <div class='view-component' domPropsInnerHTML={this.html}></div>;
   }
 }

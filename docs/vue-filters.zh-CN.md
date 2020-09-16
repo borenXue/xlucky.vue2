@@ -8,32 +8,39 @@
     "title": "a"
   }
 -->
+
 <template>
-  <div class="demo-001"></div>
-
-  <style>
-    .demo-001 {
-      color: red;
-    }
-  </style>
-
-  <script>
-    export default {
-      data() {
-        return {
-          currentTag: 'it',
-          newTag: 'abc',
-
-          tagList: [
-            { id: 'it', name: '科技' },
-            { id: 'tec', name: '教育' },
-            { id: 'war', name: '战争' },
-          ],
-        };
-      },
-    };
-  </script>
+  <div class="demo-001">
+    <div>currentTag: {{ currentTag }}</div>
+    <div class="green">tagList: {{ newTag }}</div>
+  </div>
 </template>
+
+<style>
+.demo-001 {
+  color: red;
+}
+.green {
+  color: green;
+}
+</style>
+
+<script>
+export default {
+  data() {
+    return {
+      currentTag: 'it',
+      newTag: 'abc',
+
+      tagList: [
+        { id: 'it', name: '科技' },
+        { id: 'tec', name: '教育' },
+        { id: 'war', name: '战争' },
+      ],
+    };
+  },
+};
+</script>
 ```
 
 - 又一个

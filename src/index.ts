@@ -3,7 +3,6 @@
 
 import { filterArray, filterArrayMulti, filterBoolean, filterMoney, filterTime } from './filters';
 import HelloWorld from '../components/hello-world/hello-world';
-import './init-markdown';
 
 export default {
   version: '0.0.1',

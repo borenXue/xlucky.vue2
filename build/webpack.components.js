@@ -16,7 +16,7 @@ module.exports = {
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   entry: entries,
   output: {
-    path: resolve('lib'),
+    path: resolve('lib/components'),
     publicPath: '',
     filename: '[name]/index.js',
     libraryTarget: 'commonjs',

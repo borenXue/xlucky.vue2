@@ -11,7 +11,7 @@ module.exports = {
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   entry: resolve('src/index.ts'),
   output: {
-    path: resolve('dist'),
+    path: resolve('lib'),
     publicPath: '',
     filename: 'index.js',
     libraryTarget: 'commonjs2',
@@ -24,7 +24,7 @@ module.exports = {
     port: 9001,
   },
   externals: {
-    vue: 'Vue',
+    vue: process.env.NODE_ENV === 'production' ? 'vue' : 'Vue',
   },
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.json', '.scss', '.sass'],

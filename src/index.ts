@@ -7,21 +7,26 @@ import SwitchController from '../components/switch-controller/switch-controller'
 import LinesEllipsis from '../components/lines-ellipsis/lines-ellipsis';
 import { VueConstructor } from 'vue';
 
-const components = [HelloWorld, SwitchController, LinesEllipsis];
-const filters = [filterArray, filterArrayMulti, filterBoolean, filterMoney, filterTime];
+const components = [
+  { name: 'xv-hello-world', component: HelloWorld },
+  { name: 'xv-switch-controller', component: SwitchController },
+  { name: 'xv-lines-ellipsis', component: LinesEllipsis },
+];
 
 function install(Vue: VueConstructor, opts = {}) {
-  components.forEach((component) => {
-    Vue.component(component.name, component);
+  components.forEach((item) => {
+    Vue.component(item.name, item.component);
   });
 
-  filters.forEach((filter) => {
-    Vue.filter(filter.name, filter);
-  });
+  Vue.filter('filterArray', filterArray);
+  Vue.filter('filterArrayMulti', filterArrayMulti);
+  Vue.filter('filterBoolean', filterBoolean);
+  Vue.filter('filterMoney', filterMoney);
+  Vue.filter('filterTime', filterTime);
 }
 
 export default {
-  version: '0.0.1',
+  version: '0.0.2',
   install,
   filterArray,
   filterArrayMulti,

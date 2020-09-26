@@ -1,11 +1,11 @@
 {
   "name": "xlucky.vue2",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Higher-level components library based on vue2.0 && element-ui.",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.docsite.js & npm run prebuild -- watch",
-    "build": "cross-env NODE_ENV=production run-s clean prebuild build:*",
+    "build": "rm -rf autogen lib dist && cross-env NODE_ENV=production  run-s clean prebuild build:*",
     "build:bundle": "webpack --config build/webpack.bundle.js",
     "build:components": "webpack --config build/webpack.components.js",
     "build:docsite": "webpack --config build/webpack.docsite.js",

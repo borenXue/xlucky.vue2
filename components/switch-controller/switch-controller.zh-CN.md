@@ -11,12 +11,12 @@
   <div class="demo-switch-controller-001">
     <div>
       <label>默认打开 {{ switchOpen }}:</label>
-      <switch-controller v-model="switchOpen" />
+      <xv-switch-controller v-model="switchOpen" />
     </div>
 
     <div>
       <label>默认关闭 {{ switchOpen2 }}:</label>
-      <switch-controller v-model="switchOpen2" />
+      <xv-switch-controller v-model="switchOpen2" />
     </div>
   </div>
 </template>
@@ -63,24 +63,24 @@ export default {
     <div class="demo-line">
       <div class="demo-item">
         <label>自定义颜色:</label>
-        <switch-controller v-model="switchOpen" color="red" />
+        <xv-switch-controller v-model="switchOpen" color="red" />
       </div>
 
       <div class="demo-item">
         <label>自定义线条宽度和大小:</label>
-        <switch-controller v-model="switchOpen2" color="#50a6ff" :line-width="6" :size="80" />
+        <xv-switch-controller v-model="switchOpen2" color="#50a6ff" :line-width="6" :size="80" />
       </div>
     </div>
 
     <div class="demo-line">
       <div class="demo-item">
         <label>自定义大小:</label>
-        <switch-controller v-model="switchOpen2" :size="100" />
+        <xv-switch-controller v-model="switchOpen2" :size="100" />
       </div>
 
       <div class="demo-item">
         <label>自定义动画时长:</label>
-        <switch-controller v-model="switchOpen2" color="green" :size="100" :duration="3000" />
+        <xv-switch-controller v-model="switchOpen2" color="green" :size="100" :duration="3000" />
       </div>
     </div>
   </div>

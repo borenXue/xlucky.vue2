@@ -8,14 +8,23 @@ const isNpmStartDevMode = process.env.NODE_ENV !== 'production' && process.env.W
 
 webpackBundleConfig.entry = resolve('./docsite/index.tsx');
 
-webpackBundleConfig.output.path = resolve('./dist/docsite');
+webpackBundleConfig.output.path = resolve('./lib/docsite');
 webpackBundleConfig.output.filename = 'index.js';
 delete webpackBundleConfig.output.libraryTarget;
+
+if (process.env.NODE_ENV === 'production') {
+  webpackBundleConfig.externals['xlucky.vue2'] = 'xlucky';
+} else {
+  webpackBundleConfig.resolve.alias = {
+    'xlucky.vue2': resolve('src/index.ts'),
+  };
+}
 
 webpackBundleConfig.devServer.port = '9000';
 
 webpackBundleConfig.plugins.push(
   new HtmlWebpackPlugin({
+    asserts: process.env.NODE_ENV === 'production' ? '<script src="//unpkg.com/xlucky.vue2"></script>' : '',
     title: pkg.name,
     filename: isNpmStartDevMode ? 'index.html' : 'index.html',
     template: 'docsite/index.html',

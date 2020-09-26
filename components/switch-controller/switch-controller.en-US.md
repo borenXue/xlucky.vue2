@@ -11,12 +11,12 @@ Switch components, support various custom styles.
   <div class="demo-switch-controller-001">
     <div>
       <label>Default Open {{ switchOpen }}:</label>
-      <switch-controller v-model="switchOpen" />
+      <xv-switch-controller v-model="switchOpen" />
     </div>
 
     <div>
       <label>Default Close {{ switchOpen2 }}:</label>
-      <switch-controller v-model="switchOpen2" />
+      <xv-switch-controller v-model="switchOpen2" />
     </div>
   </div>
 </template>
@@ -63,24 +63,24 @@ Support custom color, size, line width, animation duration.
     <div class="demo-line">
       <div class="demo-item">
         <label>Custom Color:</label>
-        <switch-controller v-model="switchOpen" color="red" />
+        <xv-switch-controller v-model="switchOpen" color="red" />
       </div>
 
       <div class="demo-item">
         <label>Custom line width and size:</label>
-        <switch-controller v-model="switchOpen2" color="#50a6ff" :line-width="6" :size="80" />
+        <xv-switch-controller v-model="switchOpen2" color="#50a6ff" :line-width="6" :size="80" />
       </div>
     </div>
 
     <div class="demo-line">
       <div class="demo-item">
         <label>Custom size:</label>
-        <switch-controller v-model="switchOpen2" :size="100" />
+        <xv-switch-controller v-model="switchOpen2" :size="100" />
       </div>
 
       <div class="demo-item">
         <label>Custom animation duration:</label>
-        <switch-controller v-model="switchOpen2" color="green" :size="100" :duration="3000" />
+        <xv-switch-controller v-model="switchOpen2" color="green" :size="100" :duration="3000" />
       </div>
     </div>
   </div>

@@ -3,8 +3,9 @@ import VueRouter from 'vue-router';
 import { Component } from 'vue-property-decorator';
 import './index.scss';
 import createRouterConfig from './router';
-// filter 系列
-import xlucky from '../src/index';
+
+// @ts-ignore
+import xlucky from 'xlucky.vue2';
 
 Vue.use(xlucky);
 

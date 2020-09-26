@@ -11,11 +11,13 @@
 
 <template>
   <div class="demo-lines-ellipsis-001">
-    <div class="title-line">文字未超出时</div>
-    <lines-ellipsis :lines="3" ellipsis=" <span style=\"color:  #409eff;\"> ......查看更多</span>" text="中国网9月23日讯 据外交部网站今日消息，中国外交部"/>
+    <h3 class="title-line">文字未超出时</h3>
+    <xv-lines-ellipsis :lines="3" ellipsis=" <span style=\"color:  #409eff;\"> ......查看更多</span>" text="中国网9月23日讯 据外交部网站今日消息，中国外交部"/>
 
-    <div class="title-line">文字超出时</div>
-    <lines-ellipsis :lines="3" ellipsis=" <span style=\"color: #409eff;\"> ......查看更多</span>" :text="text"/>
+    <br>
+
+    <h3 class="title-line">文字超出时</h3>
+    <xv-lines-ellipsis :lines="3" ellipsis=" <span style=\"color: #409eff;\"> ......查看更多</span>" :text="text"/>
   </div>
 </template>
 

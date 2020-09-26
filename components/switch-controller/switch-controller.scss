@@ -1,0 +1,27 @@
+.xv-switch-controller {
+  display: inline-block;
+  position: relative;
+
+  svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform-origin: 0 0;
+    pointer-events: none;
+
+    path {
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: transparent;
+    }
+  }
+
+  .xv-switch-controller--btn {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}

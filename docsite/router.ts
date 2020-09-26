@@ -1,8 +1,7 @@
 import { camelCase } from 'camel-case';
 import Design from './component/Design';
 import Layout from './component/Layout';
-import Components from './component/Components';
-import Document from './component/Document';
+import Markdown from './component/Markdown';
 import componentsJson from '../components.json';
 import { RouteConfigSingleView } from 'vue-router/types/router';
 
@@ -16,7 +15,7 @@ const componentsRouterList: RouteConfigSingleView[] = [];
 for (const key in componentsJson) {
   componentsRouterList.push({
     path: `/components/${key}`,
-    component: Components,
+    component: Markdown,
     meta: {
       title: {
         'zh-CN': CamelCase(key),
@@ -50,8 +49,8 @@ const config = [
             'en-US': 'Changelog',
           },
         },
-        component: Document,
-        props: { markdownFile: 'CHANGELOG' },
+        component: Markdown,
+        props: { markdownFile: 'docs/CHANGELOG' },
       },
       {
         path: '/user-guide/quickstart',
@@ -61,7 +60,7 @@ const config = [
             'en-US': 'Quick Start',
           },
         },
-        component: Document,
+        component: Markdown,
         props: { markdownFile: 'docs/quickstart' },
       },
       {
@@ -72,7 +71,7 @@ const config = [
             'en-US': 'Vue Filters',
           },
         },
-        component: Document,
+        component: Markdown,
         props: { markdownFile: 'docs/vue-filters' },
       },
       {
@@ -83,7 +82,7 @@ const config = [
             'en-US': 'Custom Theme',
           },
         },
-        component: Document,
+        component: Markdown,
         props: { markdownFile: 'docs/custom-theme' },
       },
     ],

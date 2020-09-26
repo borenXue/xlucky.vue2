@@ -2,10 +2,16 @@ const fs = require('fs');
 const path = require('path');
 const glob = require('glob');
 const MarkdownIt = require('markdown-it');
-const VueLiveDemoPlugin = require('markdown-it-plugin-vue-livedemo');
+const { createVuelivedemoPlugin } = require('markdown-it-plugin-vue-livedemo');
 
 const md = MarkdownIt();
-md.use(VueLiveDemoPlugin);
+md.use(
+  createVuelivedemoPlugin({
+    scroller: '.layout-content',
+    codeSandBoxDataFn: 'codeSandBoxDataFn',
+    codepenDataFn: 'codepenDataFn',
+  }),
+);
 
 function getFiles() {
   return new Promise((resolve, reject) => {

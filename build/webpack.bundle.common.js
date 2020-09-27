@@ -13,7 +13,7 @@ module.exports = {
   output: {
     path: resolve('lib'),
     publicPath: '',
-    filename: 'index.js',
+    filename: 'xlucky-vue2.common.js',
     libraryTarget: 'commonjs2',
   },
   devtool,

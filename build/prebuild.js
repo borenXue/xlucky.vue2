@@ -46,6 +46,10 @@ function install(Vue: VueConstructor, opts = {}) {
   Vue.filter('filterTime', filterTime);
 }
 
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue);
+}
+
 export default {
   version: '${pkg.version}',
   install,

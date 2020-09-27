@@ -1,0 +1,1 @@
+# xlucky.vue2

@@ -26,6 +26,6 @@ export default class Document extends Vue {
   }
 
   render() {
-    return <div class='view-document' domPropsInnerHTML={this.html}></div>;
+    return <div class='view-markdown' domPropsInnerHTML={this.html}></div>;
   }
 }

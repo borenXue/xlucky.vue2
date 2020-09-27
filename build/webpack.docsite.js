@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpackBundleConfig = require('./webpack.bundle.js');
+const webpackBundleConfig = require('./webpack.bundle.common.js');
 const pkg = require('../package.json');
 const { resolve } = require('./helper');
 

@@ -123,8 +123,7 @@ body,
     }
   }
 
-  .view-document,
-  .view-component {
+  .view-markdown {
     & > p {
       font-size: 14px;
       color: #5e6d82;
@@ -134,6 +133,15 @@ body,
         font-weight: bolder;
         color: black;
       }
+    }
+
+    & > pre {
+      background: #f2f2f2;
+      margin: 0;
+      padding: 2em 1em;
+      overflow-x: scroll;
+      border-radius: 4px;
+      box-shadow: 0 0 3px rgb(95, 91, 91, 0.42);
     }
 
     & > h3 {

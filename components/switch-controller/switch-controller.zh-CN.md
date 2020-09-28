@@ -134,3 +134,10 @@ export default {
 | size      | 大小,组件的宽度和长度 | Number | 50        | -    |
 | color     | 颜色                  | String | '#304156' | -    |
 | lineWidth | 线条宽度              | Number | 3         | -    |
+
+### 事件
+
+| 事件名          | 说明                       | 回调参数                             |
+| --------------- | -------------------------- | ------------------------------------ |
+| animation-start | 打开或关闭的动画开始前触发 | type, 事件类型, 其值为 open 或 close |
+| animation-end   | 打开或关闭的动画结束时触发 | type, 事件类型, 其值为 open 或 close |

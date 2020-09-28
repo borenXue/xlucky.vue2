@@ -136,7 +136,21 @@ export default class LinesEllipsis extends Vue {
     return chars.length;
   }
 
+  clickHandler(env: any) {
+    if (this.isMoreSpan(env.target)) {
+      this.$emit('more', env);
+    }
+  }
+
+  isMoreSpan(ele: HTMLElement | null): boolean {
+    if (ele === null) return false;
+    const cls = ele.getAttribute('class') || '';
+    if (cls.indexOf('xv-lines-ellipsis') >= 0) return false;
+    if (cls.indexOf('lines-ellipsis-span') >= 0) return true;
+    return this.isMoreSpan(ele.parentElement);
+  }
+
   render() {
-    return <div class='xv-lines-ellipsis'></div>;
+    return <div class='xv-lines-ellipsis' onClick={this.clickHandler}></div>;
   }
 }

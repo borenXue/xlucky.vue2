@@ -20,11 +20,18 @@ if (process.env.NODE_ENV === 'production') {
   };
 }
 
+webpackBundleConfig.externals.vue = 'Vue';
 webpackBundleConfig.devServer.port = '9000';
 
 webpackBundleConfig.plugins.push(
   new HtmlWebpackPlugin({
-    asserts: process.env.NODE_ENV === 'production' ? '<script src="//unpkg.com/xlucky.vue2"></script>' : '',
+    asserts:
+      process.env.NODE_ENV === 'production'
+        ? `
+      <script src="//unpkg.com/xlucky.vue2"></script>
+      <link rel="stylesheet" href="//unpkg.com/xlucky.vue2/lib/index.css" >
+    `
+        : '',
     title: pkg.name,
     filename: isNpmStartDevMode ? 'index.html' : 'index.html',
     template: 'docsite/index.html',

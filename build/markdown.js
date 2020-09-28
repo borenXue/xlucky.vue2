@@ -46,7 +46,7 @@ function singleMarkdownFileHandler(file) {
   const sourceMarkdown = fs.readFileSync(file).toString();
   const result = md.render(sourceMarkdown || '');
   const fileRelativePath = file.replace(`${path.resolve(__dirname, '../')}/`, '');
-  const outputJsonFile = path.resolve(__dirname, '../autogen');
+  const outputJsonFile = path.resolve(__dirname, process.env.NODE_ENV === 'production' ? '../lib/docsite/autogen' : '../autogen');
 
   const item = [
     fileRelativePath,

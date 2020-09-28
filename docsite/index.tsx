@@ -26,7 +26,7 @@ class App extends Vue {
 
 new Vue({
   router: new VueRouter({
-    routes: [...createRouterConfig('zh-CN'), ...createRouterConfig('en-US'), { path: '/', redirect: '/zh-CN/synopsis' }],
+    routes: [...createRouterConfig('zh-CN'), ...createRouterConfig('en-US'), { path: '/', redirect: '/zh-CN/user-guide/quickstart' }],
     mode: 'hash',
   }),
   render: (h) => h(App),
@@ -46,6 +46,7 @@ new Vue({
 import ElementUI from 'element-ui';
 import "element-ui/lib/theme-chalk/index.css";
 import xlucky from 'xlucky.vue2';
+import 'xlucky.vue2/lib/index.css';
 Vue.use(ElementUI);
 Vue.use(xlucky);
   `,
@@ -60,6 +61,7 @@ Vue.use(xlucky);
     `<script src="//unpkg.com/element-ui/lib/index.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"></link>
   <script src="//unpkg.com/xlucky.vue2"></script>
+  <link rel="stylesheet" href="//unpkg.com/xlucky.vue2/lib/index.css"></link>
 
   <!-- placeholder-code-start -->
   `,

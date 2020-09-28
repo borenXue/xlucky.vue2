@@ -1,0 +1,426 @@
+<h1>LinesEllipsis 组件</h1>
+<p>可自定义超过的文案, 但不会随浏览器大小改变而重新渲染</p>
+<p>如果需要重新渲染, 需要调用组件实例的 <code>calc()</code> 函数</p>
+<h3>使用示例</h3>
+
+    <section class="fence-livedemo-vue livedemo-1601286290658-qi0169hjbv">
+      <textarea style="width: 0;height: 0;position: absolute;top:-20px;" class="copy-box">
+
+&lt;template&gt;
+  &lt;div class=&quot;demo-lines-ellipsis-001&quot;&gt;
+    &lt;h3 class=&quot;title-line&quot;&gt;文字未超出时&lt;/h3&gt;
+    &lt;xv-lines-ellipsis :lines=&quot;3&quot; :ellipsis=&quot;ellipsis&quot; text=&quot;中国网9月23日讯 据外交部网站今日消息，中国外交部&quot; /&gt;
+
+    &lt;br /&gt;
+
+    &lt;h3 class=&quot;title-line&quot;&gt;文字超出时&lt;/h3&gt;
+    &lt;xv-lines-ellipsis @more=&quot;moreClick&quot; :lines=&quot;3&quot; :ellipsis=&quot;ellipsis&quot; :text=&quot;text&quot; /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;style lang=&quot;scss&quot;&gt;
+.demo-lines-ellipsis-001 {
+  .lines-ellipsis-span {
+    cursor: pointer;
+  }
+}
+&lt;/style&gt;
+
+&lt;script&gt;
+export default {
+  methods: {
+    moreClick(event) {
+      console.log('moreClick: ', event);
+      this.$message.info('点击了 &lt;查看更多&gt; 按钮');
+    },
+  },
+  data() {
+    return {
+      ellipsis: ' &lt;span style=&quot;color:  #409eff;&quot;&gt; ......查看更多&lt;/span&gt;',
+      text: `中国网9月23日讯 据外交部网站今日消息，中国外交部发言人汪文斌就美国领导人联大涉华讲话发表谈话。汪文斌指出，令人遗憾的是，美方利用联合国讲台，罔顾事实，编造谎言，出于不可告人的政治目的，对中国进行无端指责抹黑，中方对此坚决反对。事实再次证明，单边主义和霸凌行径是全世界面临的最严重威胁。汪文斌指出，谎言代替不了真相。中国应对疫情的表现全世界都看得很清楚，人民自有公论。新冠病毒是全人类的共同敌人，中国是病毒受害国，也是全球抗疫贡献国。中国第一时间报告疫情，第一时间确定了病原体，第一时间向世界分享了基因序列。在确定病毒出现人传人现象之后，中国在第一时间果断作出关闭离开武汉通道的决定，中方对湖北省、武汉市对外通道实施最严格的封闭和交通管控，中国海关即依法阻止全国各地拟出境人员中发现的“四类人员”出境。汪文斌称，1月23日，中方关闭离汉通道时，中国以外的国家和地区一共只有9例确诊病例，美国只有1例。1月31日，美国停飞中美直航航班，2月2日，美国对所有中国公民关闭边境，当时美国公布的确诊病例也只有10余例。中国抗疫行动公开透明，时间经纬清清楚楚，事实数据一目了然。`,
+    };
+  },
+};
+&lt;/script&gt;
+</textarea>
+
+      <div class="live-box">
+        <div class="live-box-app"></div>
+      </div>
+
+      <div class="source-box">
+        <pre>
+          <code>
+            
+
+&lt;template&gt;
+  &lt;div class=&quot;demo-lines-ellipsis-001&quot;&gt;
+    &lt;h3 class=&quot;title-line&quot;&gt;文字未超出时&lt;/h3&gt;
+    &lt;xv-lines-ellipsis :lines=&quot;3&quot; :ellipsis=&quot;ellipsis&quot; text=&quot;中国网9月23日讯 据外交部网站今日消息，中国外交部&quot; /&gt;
+
+    &lt;br /&gt;
+
+    &lt;h3 class=&quot;title-line&quot;&gt;文字超出时&lt;/h3&gt;
+    &lt;xv-lines-ellipsis @more=&quot;moreClick&quot; :lines=&quot;3&quot; :ellipsis=&quot;ellipsis&quot; :text=&quot;text&quot; /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;style lang=&quot;scss&quot;&gt;
+.demo-lines-ellipsis-001 {
+  .lines-ellipsis-span {
+    cursor: pointer;
+  }
+}
+&lt;/style&gt;
+
+&lt;script&gt;
+export default {
+  methods: {
+    moreClick(event) {
+      console.log('moreClick: ', event);
+      this.$message.info('点击了 &lt;查看更多&gt; 按钮');
+    },
+  },
+  data() {
+    return {
+      ellipsis: ' &lt;span style=&quot;color:  #409eff;&quot;&gt; ......查看更多&lt;/span&gt;',
+      text: `中国网9月23日讯 据外交部网站今日消息，中国外交部发言人汪文斌就美国领导人联大涉华讲话发表谈话。汪文斌指出，令人遗憾的是，美方利用联合国讲台，罔顾事实，编造谎言，出于不可告人的政治目的，对中国进行无端指责抹黑，中方对此坚决反对。事实再次证明，单边主义和霸凌行径是全世界面临的最严重威胁。汪文斌指出，谎言代替不了真相。中国应对疫情的表现全世界都看得很清楚，人民自有公论。新冠病毒是全人类的共同敌人，中国是病毒受害国，也是全球抗疫贡献国。中国第一时间报告疫情，第一时间确定了病原体，第一时间向世界分享了基因序列。在确定病毒出现人传人现象之后，中国在第一时间果断作出关闭离开武汉通道的决定，中方对湖北省、武汉市对外通道实施最严格的封闭和交通管控，中国海关即依法阻止全国各地拟出境人员中发现的“四类人员”出境。汪文斌称，1月23日，中方关闭离汉通道时，中国以外的国家和地区一共只有9例确诊病例，美国只有1例。1月31日，美国停飞中美直航航班，2月2日，美国对所有中国公民关闭边境，当时美国公布的确诊病例也只有10余例。中国抗疫行动公开透明，时间经纬清清楚楚，事实数据一目了然。`,
+    };
+  },
+};
+&lt;/script&gt;
+
+          </code>
+        </pre>
+      </div>
+
+      <div class="conrol-bar">
+        <div class="svgbox">
+          <svg class="icon" width="15px" height="8px" viewBox="0 0 1877 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <path d="M815.275 913.75c68.266 66.389 179.541 65.706 246.954 0l673.11-655.19c134.826-130.901 90.965-237.227-97.28-237.227H239.616c-188.587 0-232.107 106.496-97.28 237.398l672.939 655.018z" fill="#303133" />
+          </svg>
+        </div>
+        <span class="toggle-code show">显示代码</span>
+        <span class="toggle-code hide">隐藏代码</span>
+        <div class="right-btns flex-v-center">
+          <!-- CodeSandBox -->
+          <div class="svg-wrapper flex-v-center" data-action="codesandbox">
+            <svg viewBox="0 0 1024 1024" fill="currentColor">
+              <path d="M755 140.3l0.5-0.3h0.3L512 0 268.3 140h-0.3l0.8 0.4L68.6 256v512L512 1024l443.4-256V256L755 140.3z m-30 506.4v171.2L548 920.1V534.7L883.4 341v215.7l-158.4 90z m-584.4-90.6V340.8L476 534.4v385.7L300 818.5V646.7l-159.4-90.6zM511.7 280l171.1-98.3 166.3 96-336.9 194.5-337-194.6 165.7-95.7L511.7 280z"></path>
+            </svg>
+            <div class="tip-toast">
+              在 CodeSandBox 中打开
+              <span></span>
+            </div>
+          </div>
+          <!-- CodePen -->
+          <div class="svg-wrapper flex-v-center" data-action="codepen">
+            <svg viewBox="0 0 15 15" fill="currentColor">
+              <path d="M14.777304,4.75062256 L7.77734505,0.0839936563 C7.60939924,-0.0279665065 7.39060662,-0.0279665065 7.22266081,0.0839936563 L0.222701813,4.75062256 C0.0836082937,4.84334851 5.66973453e-05,4.99945222 4.6875e-05,5.16662013 L4.6875e-05,9.83324903 C4.6875e-05,10.0004355 0.0836088906,10.1565596 0.222701812,10.2492466 L7.22266081,14.9158755 C7.30662908,14.9718752 7.403316,14.999875 7.50000292,14.999875 C7.59668984,14.999875 7.69337678,14.9718752 7.77734505,14.9158755 L14.777304,10.2492466 C14.9163976,10.1565206 14.9999492,10.0004169 14.999959,9.83324903 L14.999959,5.16662013 C14.9999492,4.99945222 14.9163976,4.84334851 14.777304,4.75062256 Z M7.50000292,9.23237755 L4.90139316,7.4999502 L7.50000292,5.76755409 L10.0986127,7.4999502 L7.50000292,9.23237755 Z M8,4.89905919 L8,1.43423573 L13.598561,5.16665138 L10.9999824,6.89904747 L8,4.89905919 Z M7.00000586,4.89905919 L4.00002344,6.89904747 L1.40141366,5.16665138 L7.00000586,1.43423573 L7.00000586,4.89905919 Z M3.09865372,7.4999502 L1.00004102,8.89903575 L1.00004102,6.10089589 L3.09865372,7.4999502 Z M4.00002344,8.10085292 L7.00000586,10.1008412 L7.00000586,13.5656334 L1.40141366,9.83328028 L4.00002344,8.10085292 Z M8,10.1008412 L10.9999824,8.10085292 L13.5985922,9.83328028 L8,13.5656647 L8,10.1008412 L8,10.1008412 Z M11.9013521,7.4999502 L13.9999648,6.10089589 L13.9999648,8.899067 L11.9013521,7.4999502 Z"></path>
+            </svg>
+            <div class="tip-toast">
+              在 CodePen 中打开
+              <span></span>
+            </div>
+          </div>
+          <!-- Copy -->
+          <div class="svg-wrapper flex-v-center" data-action="copy">
+            <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="snippets" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+              <path d="M832 112H724V72c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v40H500V72c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v40H320c-17.7 0-32 14.3-32 32v120h-96c-17.7 0-32 14.3-32 32v632c0 17.7 14.3 32 32 32h512c17.7 0 32-14.3 32-32v-96h96c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM664 888H232V336h218v174c0 22.1 17.9 40 40 40h174v338zm0-402H514V336h.2L664 485.8v.2zm128 274h-56V456L544 264H360v-80h68v32c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-32h152v32c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-32h68v576z"></path>
+            </svg>
+            <div class="tip-toast clipboard-copy-btn" data-clipboard-action="copy" data-clipboard-target=".fence-livedemo-vue.livedemo-1601286290658-qi0169hjbv .source-box">
+              复制代码
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script> 
+    
+    (function (componentUuid) {
+      /* script */
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+const __vue_script__ = {
+  methods: {
+    moreClick(event) {
+      console.log('moreClick: ', event);
+      this.$message.info('点击了 <查看更多> 按钮');
+    },
+  },
+  data() {
+    return {
+      ellipsis: ' <span style="color:  #409eff;"> ......查看更多</span>',
+      text: `中国网9月23日讯 据外交部网站今日消息，中国外交部发言人汪文斌就美国领导人联大涉华讲话发表谈话。汪文斌指出，令人遗憾的是，美方利用联合国讲台，罔顾事实，编造谎言，出于不可告人的政治目的，对中国进行无端指责抹黑，中方对此坚决反对。事实再次证明，单边主义和霸凌行径是全世界面临的最严重威胁。汪文斌指出，谎言代替不了真相。中国应对疫情的表现全世界都看得很清楚，人民自有公论。新冠病毒是全人类的共同敌人，中国是病毒受害国，也是全球抗疫贡献国。中国第一时间报告疫情，第一时间确定了病原体，第一时间向世界分享了基因序列。在确定病毒出现人传人现象之后，中国在第一时间果断作出关闭离开武汉通道的决定，中方对湖北省、武汉市对外通道实施最严格的封闭和交通管控，中国海关即依法阻止全国各地拟出境人员中发现的“四类人员”出境。汪文斌称，1月23日，中方关闭离汉通道时，中国以外的国家和地区一共只有9例确诊病例，美国只有1例。1月31日，美国停飞中美直航航班，2月2日，美国对所有中国公民关闭边境，当时美国公布的确诊病例也只有10余例。中国抗疫行动公开透明，时间经纬清清楚楚，事实数据一目了然。`,
+    };
+  },
+};
+
+/* template */
+var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"demo-lines-ellipsis-001"},[_c('h3',{staticClass:"title-line"},[_vm._v("文字未超出时")]),_vm._v(" "),_c('xv-lines-ellipsis',{attrs:{"lines":3,"ellipsis":_vm.ellipsis,"text":"中国网9月23日讯 据外交部网站今日消息，中国外交部"}}),_vm._v(" "),_c('br'),_vm._v(" "),_c('h3',{staticClass:"title-line"},[_vm._v("文字超出时")]),_vm._v(" "),_c('xv-lines-ellipsis',{attrs:{"lines":3,"ellipsis":_vm.ellipsis,"text":_vm.text},on:{"more":_vm.moreClick}})],1)}
+var __vue_staticRenderFns__ = []
+
+  /* style */
+  const __vue_inject_styles__ = function (inject) {
+    if (!inject) return
+    inject("data-v-129a2ba3_0", { source: ".demo-lines-ellipsis-001 .lines-ellipsis-span{cursor:pointer}", map: undefined, media: undefined })
+
+  }
+  /* scoped */
+  const __vue_scope_id__ = undefined
+  /* module identifier */
+  const __vue_module_identifier__ = undefined
+  /* functional template */
+  const __vue_is_functional_template__ = false
+  /* component normalizer */
+  function __vue_normalize__(
+    template, style, script,
+    scope, functional, moduleIdentifier, shadowMode,
+    createInjector, createInjectorSSR, createInjectorShadow
+  ) {
+    const component = (typeof script === 'function' ? script.options : script) || {}
+
+    // For security concerns, we use only base name in production mode.
+    component.__file = "abc.vue"
+
+    if (!component.render) {
+      component.render = template.render
+      component.staticRenderFns = template.staticRenderFns
+      component._compiled = true
+
+      if (functional) component.functional = true
+    }
+
+    component._scopeId = scope
+
+    if (true) {
+      let hook
+      if (false) {
+        // In SSR.
+        hook = function(context) {
+          // 2.3 injection
+          context =
+            context || // cached call
+            (this.$vnode && this.$vnode.ssrContext) || // stateful
+            (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+          // 2.2 with runInNewContext: true
+          if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+            context = __VUE_SSR_CONTEXT__
+          }
+          // inject component styles
+          if (style) {
+            style.call(this, createInjectorSSR(context))
+          }
+          // register component module identifier for async chunk inference
+          if (context && context._registeredComponents) {
+            context._registeredComponents.add(moduleIdentifier)
+          }
+        }
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        component._ssrRegister = hook
+      }
+      else if (style) {
+        hook = shadowMode 
+          ? function(context) {
+              style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot))
+            }
+          : function(context) {
+              style.call(this, createInjector(context))
+            }
+      }
+
+      if (hook !== undefined) {
+        if (component.functional) {
+          // register for functional component in vue file
+          const originalRender = component.render
+          component.render = function renderWithStyleInjection(h, context) {
+            hook.call(context)
+            return originalRender(h, context)
+          }
+        } else {
+          // inject component registration as beforeCreate hook
+          const existing = component.beforeCreate
+          component.beforeCreate = existing ? [].concat(existing, hook) : [hook]
+        }
+      }
+    }
+
+    return component
+  }
+  /* style inject */
+  function __vue_create_injector__() {
+    const styles = __vue_create_injector__.styles || (__vue_create_injector__.styles = {})
+    const isOldIE =
+      typeof navigator !== 'undefined' &&
+      /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase())
+
+    return function addStyle(id, css) {
+      if (document.querySelector('style[data-vue-ssr-id~="' + id + '"]')) return // SSR styles are present.
+
+      const group = isOldIE ? css.media || 'default' : id
+      const style = styles[group] || (styles[group] = { ids: [], parts: [], element: undefined })
+
+      if (!style.ids.includes(id)) {
+        let code = css.source
+        let index = style.ids.length
+
+        style.ids.push(id)
+
+        if (true && css.map) {
+          // https://developer.chrome.com/devtools/docs/javascript-debugging
+          // this makes source maps inside style tags work properly in Chrome
+          code += '\n/*# sourceURL=' + css.map.sources[0] + ' */'
+          // http://stackoverflow.com/a/26603875
+          code +=
+            '\n/*# sourceMappingURL=data:application/json;base64,' +
+            btoa(unescape(encodeURIComponent(JSON.stringify(css.map)))) +
+            ' */'
+        }
+
+        if (isOldIE) {
+          style.element = style.element || document.querySelector('style[data-group=' + group + ']')
+        }
+
+        if (!style.element) {
+          const head = document.head || document.getElementsByTagName('head')[0]
+          const el = style.element = document.createElement('style')
+          el.type = 'text/css'
+
+          if (css.media) el.setAttribute('media', css.media)
+          if (isOldIE) {
+            el.setAttribute('data-group', group)
+            el.setAttribute('data-next-index', '0')
+          }
+
+          head.appendChild(el)
+        }
+
+        if (isOldIE) {
+          index = parseInt(style.element.getAttribute('data-next-index'))
+          style.element.setAttribute('data-next-index', index + 1)
+        }
+
+        if (style.element.styleSheet) {
+          style.parts.push(code)
+          style.element.styleSheet.cssText = style.parts
+            .filter(Boolean)
+            .join('\n')
+        } else {
+          const textNode = document.createTextNode(code)
+          const nodes = style.element.childNodes
+          if (nodes[index]) style.element.removeChild(nodes[index])
+          if (nodes.length) style.element.insertBefore(textNode, nodes[index])
+          else style.element.appendChild(textNode)
+        }
+      }
+    }
+  }
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  const __vue_component__ = /*#__PURE__*/__vue_normalize__(
+    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    __vue_create_injector__,
+    undefined,
+    undefined
+  )
+
+  window[componentUuid] = __vue_component__
+    })('livedemo-1601286290658-qi0169hjbv');
+  ;
+
+    (function () {
+      var elementLiveDemo = document.querySelector('section.livedemo-1601286290658-qi0169hjbv');
+      if (elementLiveDemo) {
+        MarkdownItVueLiveDemo.setupVueLiveDemoItem(
+          elementLiveDemo, 'livedemo-1601286290658-qi0169hjbv', window['livedemo-1601286290658-qi0169hjbv'],
+          `%7B%22config%22%3A%7B%22scroller%22%3A%22.layout-content%22%2C%22codeSandBoxDataFn%22%3A%22codeSandBoxDataFn%22%2C%22codepenDataFn%22%3A%22codepenDataFn%22%7D%2C%22vueContent%22%3A%22%5Cn%5Cn%3Ctemplate%3E%5Cn%20%20%3Cdiv%20class%3D%5C%22demo-lines-ellipsis-001%5C%22%3E%5Cn%20%20%20%20%3Ch3%20class%3D%5C%22title-line%5C%22%3E%E6%96%87%E5%AD%97%E6%9C%AA%E8%B6%85%E5%87%BA%E6%97%B6%3C%2Fh3%3E%5Cn%20%20%20%20%3Cxv-lines-ellipsis%20%3Alines%3D%5C%223%5C%22%20%3Aellipsis%3D%5C%22ellipsis%5C%22%20text%3D%5C%22%E4%B8%AD%E5%9B%BD%E7%BD%919%E6%9C%8823%E6%97%A5%E8%AE%AF%20%E6%8D%AE%E5%A4%96%E4%BA%A4%E9%83%A8%E7%BD%91%E7%AB%99%E4%BB%8A%E6%97%A5%E6%B6%88%E6%81%AF%EF%BC%8C%E4%B8%AD%E5%9B%BD%E5%A4%96%E4%BA%A4%E9%83%A8%5C%22%20%2F%3E%5Cn%5Cn%20%20%20%20%3Cbr%20%2F%3E%5Cn%5Cn%20%20%20%20%3Ch3%20class%3D%5C%22title-line%5C%22%3E%E6%96%87%E5%AD%97%E8%B6%85%E5%87%BA%E6%97%B6%3C%2Fh3%3E%5Cn%20%20%20%20%3Cxv-lines-ellipsis%20%40more%3D%5C%22moreClick%5C%22%20%3Alines%3D%5C%223%5C%22%20%3Aellipsis%3D%5C%22ellipsis%5C%22%20%3Atext%3D%5C%22text%5C%22%20%2F%3E%5Cn%20%20%3C%2Fdiv%3E%5Cn%3C%2Ftemplate%3E%5Cn%5Cn%3Cstyle%20lang%3D%5C%22scss%5C%22%3E%5Cn.demo-lines-ellipsis-001%20%7B%5Cn%20%20.lines-ellipsis-span%20%7B%5Cn%20%20%20%20cursor%3A%20pointer%3B%5Cn%20%20%7D%5Cn%7D%5Cn%3C%2Fstyle%3E%5Cn%5Cn%3Cscript%3E%5Cnexport%20default%20%7B%5Cn%20%20methods%3A%20%7B%5Cn%20%20%20%20moreClick(event)%20%7B%5Cn%20%20%20%20%20%20console.log('moreClick%3A%20'%2C%20event)%3B%5Cn%20%20%20%20%20%20this.%24message.info('%E7%82%B9%E5%87%BB%E4%BA%86%20%3C%E6%9F%A5%E7%9C%8B%E6%9B%B4%E5%A4%9A%3E%20%E6%8C%89%E9%92%AE')%3B%5Cn%20%20%20%20%7D%2C%5Cn%20%20%7D%2C%5Cn%20%20data()%20%7B%5Cn%20%20%20%20return%20%7B%5Cn%20%20%20%20%20%20ellipsis%3A%20'%20%3Cspan%20style%3D%5C%22color%3A%20%20%23409eff%3B%5C%22%3E%20......%E6%9F%A5%E7%9C%8B%E6%9B%B4%E5%A4%9A%3C%2Fspan%3E'%2C%5Cn%20%20%20%20%20%20text%3A%20%60%E4%B8%AD%E5%9B%BD%E7%BD%919%E6%9C%8823%E6%97%A5%E8%AE%AF%20%E6%8D%AE%E5%A4%96%E4%BA%A4%E9%83%A8%E7%BD%91%E7%AB%99%E4%BB%8A%E6%97%A5%E6%B6%88%E6%81%AF%EF%BC%8C%E4%B8%AD%E5%9B%BD%E5%A4%96%E4%BA%A4%E9%83%A8%E5%8F%91%E8%A8%80%E4%BA%BA%E6%B1%AA%E6%96%87%E6%96%8C%E5%B0%B1%E7%BE%8E%E5%9B%BD%E9%A2%86%E5%AF%BC%E4%BA%BA%E8%81%94%E5%A4%A7%E6%B6%89%E5%8D%8E%E8%AE%B2%E8%AF%9D%E5%8F%91%E8%A1%A8%E8%B0%88%E8%AF%9D%E3%80%82%E6%B1%AA%E6%96%87%E6%96%8C%E6%8C%87%E5%87%BA%EF%BC%8C%E4%BB%A4%E4%BA%BA%E9%81%97%E6%86%BE%E7%9A%84%E6%98%AF%EF%BC%8C%E7%BE%8E%E6%96%B9%E5%88%A9%E7%94%A8%E8%81%94%E5%90%88%E5%9B%BD%E8%AE%B2%E5%8F%B0%EF%BC%8C%E7%BD%94%E9%A1%BE%E4%BA%8B%E5%AE%9E%EF%BC%8C%E7%BC%96%E9%80%A0%E8%B0%8E%E8%A8%80%EF%BC%8C%E5%87%BA%E4%BA%8E%E4%B8%8D%E5%8F%AF%E5%91%8A%E4%BA%BA%E7%9A%84%E6%94%BF%E6%B2%BB%E7%9B%AE%E7%9A%84%EF%BC%8C%E5%AF%B9%E4%B8%AD%E5%9B%BD%E8%BF%9B%E8%A1%8C%E6%97%A0%E7%AB%AF%E6%8C%87%E8%B4%A3%E6%8A%B9%E9%BB%91%EF%BC%8C%E4%B8%AD%E6%96%B9%E5%AF%B9%E6%AD%A4%E5%9D%9A%E5%86%B3%E5%8F%8D%E5%AF%B9%E3%80%82%E4%BA%8B%E5%AE%9E%E5%86%8D%E6%AC%A1%E8%AF%81%E6%98%8E%EF%BC%8C%E5%8D%95%E8%BE%B9%E4%B8%BB%E4%B9%89%E5%92%8C%E9%9C%B8%E5%87%8C%E8%A1%8C%E5%BE%84%E6%98%AF%E5%85%A8%E4%B8%96%E7%95%8C%E9%9D%A2%E4%B8%B4%E7%9A%84%E6%9C%80%E4%B8%A5%E9%87%8D%E5%A8%81%E8%83%81%E3%80%82%E6%B1%AA%E6%96%87%E6%96%8C%E6%8C%87%E5%87%BA%EF%BC%8C%E8%B0%8E%E8%A8%80%E4%BB%A3%E6%9B%BF%E4%B8%8D%E4%BA%86%E7%9C%9F%E7%9B%B8%E3%80%82%E4%B8%AD%E5%9B%BD%E5%BA%94%E5%AF%B9%E7%96%AB%E6%83%85%E7%9A%84%E8%A1%A8%E7%8E%B0%E5%85%A8%E4%B8%96%E7%95%8C%E9%83%BD%E7%9C%8B%E5%BE%97%E5%BE%88%E6%B8%85%E6%A5%9A%EF%BC%8C%E4%BA%BA%E6%B0%91%E8%87%AA%E6%9C%89%E5%85%AC%E8%AE%BA%E3%80%82%E6%96%B0%E5%86%A0%E7%97%85%E6%AF%92%E6%98%AF%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%85%B1%E5%90%8C%E6%95%8C%E4%BA%BA%EF%BC%8C%E4%B8%AD%E5%9B%BD%E6%98%AF%E7%97%85%E6%AF%92%E5%8F%97%E5%AE%B3%E5%9B%BD%EF%BC%8C%E4%B9%9F%E6%98%AF%E5%85%A8%E7%90%83%E6%8A%97%E7%96%AB%E8%B4%A1%E7%8C%AE%E5%9B%BD%E3%80%82%E4%B8%AD%E5%9B%BD%E7%AC%AC%E4%B8%80%E6%97%B6%E9%97%B4%E6%8A%A5%E5%91%8A%E7%96%AB%E6%83%85%EF%BC%8C%E7%AC%AC%E4%B8%80%E6%97%B6%E9%97%B4%E7%A1%AE%E5%AE%9A%E4%BA%86%E7%97%85%E5%8E%9F%E4%BD%93%EF%BC%8C%E7%AC%AC%E4%B8%80%E6%97%B6%E9%97%B4%E5%90%91%E4%B8%96%E7%95%8C%E5%88%86%E4%BA%AB%E4%BA%86%E5%9F%BA%E5%9B%A0%E5%BA%8F%E5%88%97%E3%80%82%E5%9C%A8%E7%A1%AE%E5%AE%9A%E7%97%85%E6%AF%92%E5%87%BA%E7%8E%B0%E4%BA%BA%E4%BC%A0%E4%BA%BA%E7%8E%B0%E8%B1%A1%E4%B9%8B%E5%90%8E%EF%BC%8C%E4%B8%AD%E5%9B%BD%E5%9C%A8%E7%AC%AC%E4%B8%80%E6%97%B6%E9%97%B4%E6%9E%9C%E6%96%AD%E4%BD%9C%E5%87%BA%E5%85%B3%E9%97%AD%E7%A6%BB%E5%BC%80%E6%AD%A6%E6%B1%89%E9%80%9A%E9%81%93%E7%9A%84%E5%86%B3%E5%AE%9A%EF%BC%8C%E4%B8%AD%E6%96%B9%E5%AF%B9%E6%B9%96%E5%8C%97%E7%9C%81%E3%80%81%E6%AD%A6%E6%B1%89%E5%B8%82%E5%AF%B9%E5%A4%96%E9%80%9A%E9%81%93%E5%AE%9E%E6%96%BD%E6%9C%80%E4%B8%A5%E6%A0%BC%E7%9A%84%E5%B0%81%E9%97%AD%E5%92%8C%E4%BA%A4%E9%80%9A%E7%AE%A1%E6%8E%A7%EF%BC%8C%E4%B8%AD%E5%9B%BD%E6%B5%B7%E5%85%B3%E5%8D%B3%E4%BE%9D%E6%B3%95%E9%98%BB%E6%AD%A2%E5%85%A8%E5%9B%BD%E5%90%84%E5%9C%B0%E6%8B%9F%E5%87%BA%E5%A2%83%E4%BA%BA%E5%91%98%E4%B8%AD%E5%8F%91%E7%8E%B0%E7%9A%84%E2%80%9C%E5%9B%9B%E7%B1%BB%E4%BA%BA%E5%91%98%E2%80%9D%E5%87%BA%E5%A2%83%E3%80%82%E6%B1%AA%E6%96%87%E6%96%8C%E7%A7%B0%EF%BC%8C1%E6%9C%8823%E6%97%A5%EF%BC%8C%E4%B8%AD%E6%96%B9%E5%85%B3%E9%97%AD%E7%A6%BB%E6%B1%89%E9%80%9A%E9%81%93%E6%97%B6%EF%BC%8C%E4%B8%AD%E5%9B%BD%E4%BB%A5%E5%A4%96%E7%9A%84%E5%9B%BD%E5%AE%B6%E5%92%8C%E5%9C%B0%E5%8C%BA%E4%B8%80%E5%85%B1%E5%8F%AA%E6%9C%899%E4%BE%8B%E7%A1%AE%E8%AF%8A%E7%97%85%E4%BE%8B%EF%BC%8C%E7%BE%8E%E5%9B%BD%E5%8F%AA%E6%9C%891%E4%BE%8B%E3%80%821%E6%9C%8831%E6%97%A5%EF%BC%8C%E7%BE%8E%E5%9B%BD%E5%81%9C%E9%A3%9E%E4%B8%AD%E7%BE%8E%E7%9B%B4%E8%88%AA%E8%88%AA%E7%8F%AD%EF%BC%8C2%E6%9C%882%E6%97%A5%EF%BC%8C%E7%BE%8E%E5%9B%BD%E5%AF%B9%E6%89%80%E6%9C%89%E4%B8%AD%E5%9B%BD%E5%85%AC%E6%B0%91%E5%85%B3%E9%97%AD%E8%BE%B9%E5%A2%83%EF%BC%8C%E5%BD%93%E6%97%B6%E7%BE%8E%E5%9B%BD%E5%85%AC%E5%B8%83%E7%9A%84%E7%A1%AE%E8%AF%8A%E7%97%85%E4%BE%8B%E4%B9%9F%E5%8F%AA%E6%9C%8910%E4%BD%99%E4%BE%8B%E3%80%82%E4%B8%AD%E5%9B%BD%E6%8A%97%E7%96%AB%E8%A1%8C%E5%8A%A8%E5%85%AC%E5%BC%80%E9%80%8F%E6%98%8E%EF%BC%8C%E6%97%B6%E9%97%B4%E7%BB%8F%E7%BA%AC%E6%B8%85%E6%B8%85%E6%A5%9A%E6%A5%9A%EF%BC%8C%E4%BA%8B%E5%AE%9E%E6%95%B0%E6%8D%AE%E4%B8%80%E7%9B%AE%E4%BA%86%E7%84%B6%E3%80%82%60%2C%5Cn%20%20%20%20%7D%3B%5Cn%20%20%7D%2C%5Cn%7D%3B%5Cn%3C%2Fscript%3E%5Cn%22%2C%22template%22%3A%22%5Cn%20%20%3Cdiv%20class%3D%5C%22demo-lines-ellipsis-001%5C%22%3E%5Cn%20%20%20%20%3Ch3%20class%3D%5C%22title-line%5C%22%3E%E6%96%87%E5%AD%97%E6%9C%AA%E8%B6%85%E5%87%BA%E6%97%B6%3C%2Fh3%3E%5Cn%20%20%20%20%3Cxv-lines-ellipsis%20%3Alines%3D%5C%223%5C%22%20%3Aellipsis%3D%5C%22ellipsis%5C%22%20text%3D%5C%22%E4%B8%AD%E5%9B%BD%E7%BD%919%E6%9C%8823%E6%97%A5%E8%AE%AF%20%E6%8D%AE%E5%A4%96%E4%BA%A4%E9%83%A8%E7%BD%91%E7%AB%99%E4%BB%8A%E6%97%A5%E6%B6%88%E6%81%AF%EF%BC%8C%E4%B8%AD%E5%9B%BD%E5%A4%96%E4%BA%A4%E9%83%A8%5C%22%20%2F%3E%5Cn%5Cn%20%20%20%20%3Cbr%20%2F%3E%5Cn%5Cn%20%20%20%20%3Ch3%20class%3D%5C%22title-line%5C%22%3E%E6%96%87%E5%AD%97%E8%B6%85%E5%87%BA%E6%97%B6%3C%2Fh3%3E%5Cn%20%20%20%20%3Cxv-lines-ellipsis%20%40more%3D%5C%22moreClick%5C%22%20%3Alines%3D%5C%223%5C%22%20%3Aellipsis%3D%5C%22ellipsis%5C%22%20%3Atext%3D%5C%22text%5C%22%20%2F%3E%5Cn%20%20%3C%2Fdiv%3E%5Cn%22%2C%22style%22%3A%22%5Cn.demo-lines-ellipsis-001%20%7B%5Cn%20%20.lines-ellipsis-span%20%7B%5Cn%20%20%20%20cursor%3A%20pointer%3B%5Cn%20%20%7D%5Cn%7D%5Cn%22%2C%22styleLang%22%3A%22scss%22%2C%22script%22%3A%22%5Cnexport%20default%20%7B%5Cn%20%20methods%3A%20%7B%5Cn%20%20%20%20moreClick(event)%20%7B%5Cn%20%20%20%20%20%20console.log('moreClick%3A%20'%2C%20event)%3B%5Cn%20%20%20%20%20%20this.%24message.info('%E7%82%B9%E5%87%BB%E4%BA%86%20%3C%E6%9F%A5%E7%9C%8B%E6%9B%B4%E5%A4%9A%3E%20%E6%8C%89%E9%92%AE')%3B%5Cn%20%20%20%20%7D%2C%5Cn%20%20%7D%2C%5Cn%20%20data()%20%7B%5Cn%20%20%20%20return%20%7B%5Cn%20%20%20%20%20%20ellipsis%3A%20'%20%3Cspan%20style%3D%5C%22color%3A%20%20%23409eff%3B%5C%22%3E%20......%E6%9F%A5%E7%9C%8B%E6%9B%B4%E5%A4%9A%3C%2Fspan%3E'%2C%5Cn%20%20%20%20%20%20text%3A%20%60%E4%B8%AD%E5%9B%BD%E7%BD%919%E6%9C%8823%E6%97%A5%E8%AE%AF%20%E6%8D%AE%E5%A4%96%E4%BA%A4%E9%83%A8%E7%BD%91%E7%AB%99%E4%BB%8A%E6%97%A5%E6%B6%88%E6%81%AF%EF%BC%8C%E4%B8%AD%E5%9B%BD%E5%A4%96%E4%BA%A4%E9%83%A8%E5%8F%91%E8%A8%80%E4%BA%BA%E6%B1%AA%E6%96%87%E6%96%8C%E5%B0%B1%E7%BE%8E%E5%9B%BD%E9%A2%86%E5%AF%BC%E4%BA%BA%E8%81%94%E5%A4%A7%E6%B6%89%E5%8D%8E%E8%AE%B2%E8%AF%9D%E5%8F%91%E8%A1%A8%E8%B0%88%E8%AF%9D%E3%80%82%E6%B1%AA%E6%96%87%E6%96%8C%E6%8C%87%E5%87%BA%EF%BC%8C%E4%BB%A4%E4%BA%BA%E9%81%97%E6%86%BE%E7%9A%84%E6%98%AF%EF%BC%8C%E7%BE%8E%E6%96%B9%E5%88%A9%E7%94%A8%E8%81%94%E5%90%88%E5%9B%BD%E8%AE%B2%E5%8F%B0%EF%BC%8C%E7%BD%94%E9%A1%BE%E4%BA%8B%E5%AE%9E%EF%BC%8C%E7%BC%96%E9%80%A0%E8%B0%8E%E8%A8%80%EF%BC%8C%E5%87%BA%E4%BA%8E%E4%B8%8D%E5%8F%AF%E5%91%8A%E4%BA%BA%E7%9A%84%E6%94%BF%E6%B2%BB%E7%9B%AE%E7%9A%84%EF%BC%8C%E5%AF%B9%E4%B8%AD%E5%9B%BD%E8%BF%9B%E8%A1%8C%E6%97%A0%E7%AB%AF%E6%8C%87%E8%B4%A3%E6%8A%B9%E9%BB%91%EF%BC%8C%E4%B8%AD%E6%96%B9%E5%AF%B9%E6%AD%A4%E5%9D%9A%E5%86%B3%E5%8F%8D%E5%AF%B9%E3%80%82%E4%BA%8B%E5%AE%9E%E5%86%8D%E6%AC%A1%E8%AF%81%E6%98%8E%EF%BC%8C%E5%8D%95%E8%BE%B9%E4%B8%BB%E4%B9%89%E5%92%8C%E9%9C%B8%E5%87%8C%E8%A1%8C%E5%BE%84%E6%98%AF%E5%85%A8%E4%B8%96%E7%95%8C%E9%9D%A2%E4%B8%B4%E7%9A%84%E6%9C%80%E4%B8%A5%E9%87%8D%E5%A8%81%E8%83%81%E3%80%82%E6%B1%AA%E6%96%87%E6%96%8C%E6%8C%87%E5%87%BA%EF%BC%8C%E8%B0%8E%E8%A8%80%E4%BB%A3%E6%9B%BF%E4%B8%8D%E4%BA%86%E7%9C%9F%E7%9B%B8%E3%80%82%E4%B8%AD%E5%9B%BD%E5%BA%94%E5%AF%B9%E7%96%AB%E6%83%85%E7%9A%84%E8%A1%A8%E7%8E%B0%E5%85%A8%E4%B8%96%E7%95%8C%E9%83%BD%E7%9C%8B%E5%BE%97%E5%BE%88%E6%B8%85%E6%A5%9A%EF%BC%8C%E4%BA%BA%E6%B0%91%E8%87%AA%E6%9C%89%E5%85%AC%E8%AE%BA%E3%80%82%E6%96%B0%E5%86%A0%E7%97%85%E6%AF%92%E6%98%AF%E5%85%A8%E4%BA%BA%E7%B1%BB%E7%9A%84%E5%85%B1%E5%90%8C%E6%95%8C%E4%BA%BA%EF%BC%8C%E4%B8%AD%E5%9B%BD%E6%98%AF%E7%97%85%E6%AF%92%E5%8F%97%E5%AE%B3%E5%9B%BD%EF%BC%8C%E4%B9%9F%E6%98%AF%E5%85%A8%E7%90%83%E6%8A%97%E7%96%AB%E8%B4%A1%E7%8C%AE%E5%9B%BD%E3%80%82%E4%B8%AD%E5%9B%BD%E7%AC%AC%E4%B8%80%E6%97%B6%E9%97%B4%E6%8A%A5%E5%91%8A%E7%96%AB%E6%83%85%EF%BC%8C%E7%AC%AC%E4%B8%80%E6%97%B6%E9%97%B4%E7%A1%AE%E5%AE%9A%E4%BA%86%E7%97%85%E5%8E%9F%E4%BD%93%EF%BC%8C%E7%AC%AC%E4%B8%80%E6%97%B6%E9%97%B4%E5%90%91%E4%B8%96%E7%95%8C%E5%88%86%E4%BA%AB%E4%BA%86%E5%9F%BA%E5%9B%A0%E5%BA%8F%E5%88%97%E3%80%82%E5%9C%A8%E7%A1%AE%E5%AE%9A%E7%97%85%E6%AF%92%E5%87%BA%E7%8E%B0%E4%BA%BA%E4%BC%A0%E4%BA%BA%E7%8E%B0%E8%B1%A1%E4%B9%8B%E5%90%8E%EF%BC%8C%E4%B8%AD%E5%9B%BD%E5%9C%A8%E7%AC%AC%E4%B8%80%E6%97%B6%E9%97%B4%E6%9E%9C%E6%96%AD%E4%BD%9C%E5%87%BA%E5%85%B3%E9%97%AD%E7%A6%BB%E5%BC%80%E6%AD%A6%E6%B1%89%E9%80%9A%E9%81%93%E7%9A%84%E5%86%B3%E5%AE%9A%EF%BC%8C%E4%B8%AD%E6%96%B9%E5%AF%B9%E6%B9%96%E5%8C%97%E7%9C%81%E3%80%81%E6%AD%A6%E6%B1%89%E5%B8%82%E5%AF%B9%E5%A4%96%E9%80%9A%E9%81%93%E5%AE%9E%E6%96%BD%E6%9C%80%E4%B8%A5%E6%A0%BC%E7%9A%84%E5%B0%81%E9%97%AD%E5%92%8C%E4%BA%A4%E9%80%9A%E7%AE%A1%E6%8E%A7%EF%BC%8C%E4%B8%AD%E5%9B%BD%E6%B5%B7%E5%85%B3%E5%8D%B3%E4%BE%9D%E6%B3%95%E9%98%BB%E6%AD%A2%E5%85%A8%E5%9B%BD%E5%90%84%E5%9C%B0%E6%8B%9F%E5%87%BA%E5%A2%83%E4%BA%BA%E5%91%98%E4%B8%AD%E5%8F%91%E7%8E%B0%E7%9A%84%E2%80%9C%E5%9B%9B%E7%B1%BB%E4%BA%BA%E5%91%98%E2%80%9D%E5%87%BA%E5%A2%83%E3%80%82%E6%B1%AA%E6%96%87%E6%96%8C%E7%A7%B0%EF%BC%8C1%E6%9C%8823%E6%97%A5%EF%BC%8C%E4%B8%AD%E6%96%B9%E5%85%B3%E9%97%AD%E7%A6%BB%E6%B1%89%E9%80%9A%E9%81%93%E6%97%B6%EF%BC%8C%E4%B8%AD%E5%9B%BD%E4%BB%A5%E5%A4%96%E7%9A%84%E5%9B%BD%E5%AE%B6%E5%92%8C%E5%9C%B0%E5%8C%BA%E4%B8%80%E5%85%B1%E5%8F%AA%E6%9C%899%E4%BE%8B%E7%A1%AE%E8%AF%8A%E7%97%85%E4%BE%8B%EF%BC%8C%E7%BE%8E%E5%9B%BD%E5%8F%AA%E6%9C%891%E4%BE%8B%E3%80%821%E6%9C%8831%E6%97%A5%EF%BC%8C%E7%BE%8E%E5%9B%BD%E5%81%9C%E9%A3%9E%E4%B8%AD%E7%BE%8E%E7%9B%B4%E8%88%AA%E8%88%AA%E7%8F%AD%EF%BC%8C2%E6%9C%882%E6%97%A5%EF%BC%8C%E7%BE%8E%E5%9B%BD%E5%AF%B9%E6%89%80%E6%9C%89%E4%B8%AD%E5%9B%BD%E5%85%AC%E6%B0%91%E5%85%B3%E9%97%AD%E8%BE%B9%E5%A2%83%EF%BC%8C%E5%BD%93%E6%97%B6%E7%BE%8E%E5%9B%BD%E5%85%AC%E5%B8%83%E7%9A%84%E7%A1%AE%E8%AF%8A%E7%97%85%E4%BE%8B%E4%B9%9F%E5%8F%AA%E6%9C%8910%E4%BD%99%E4%BE%8B%E3%80%82%E4%B8%AD%E5%9B%BD%E6%8A%97%E7%96%AB%E8%A1%8C%E5%8A%A8%E5%85%AC%E5%BC%80%E9%80%8F%E6%98%8E%EF%BC%8C%E6%97%B6%E9%97%B4%E7%BB%8F%E7%BA%AC%E6%B8%85%E6%B8%85%E6%A5%9A%E6%A5%9A%EF%BC%8C%E4%BA%8B%E5%AE%9E%E6%95%B0%E6%8D%AE%E4%B8%80%E7%9B%AE%E4%BA%86%E7%84%B6%E3%80%82%60%2C%5Cn%20%20%20%20%7D%3B%5Cn%20%20%7D%2C%5Cn%7D%3B%5Cn%22%2C%22extra%22%3A%7B%7D%7D`
+        );
+      }
+    })();
+  ; </script>
+    </section>
+  <h3>Attributes</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ellipsis</td>
+<td>省略号内容</td>
+<td>String</td>
+<td>'...'</td>
+<td>-</td>
+</tr>
+<tr>
+<td>text</td>
+<td>内容(必填)</td>
+<td>String</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>lines</td>
+<td>最大行数</td>
+<td>Number</td>
+<td>3</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3>事件</h3>
+<table>
+<thead>
+<tr>
+<th>事件名</th>
+<th>说明</th>
+<th>回调参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>more</td>
+<td>点击自定义的省略号时触发, eg: '...查看更多'</td>
+<td>event</td>
+</tr>
+</tbody>
+</table>

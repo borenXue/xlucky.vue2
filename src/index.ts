@@ -30,7 +30,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '0.0.4',
+  version: '0.0.7',
   install,
   filterArray,
   filterArrayMulti,

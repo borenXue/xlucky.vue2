@@ -18,6 +18,9 @@ rm -rf versions/v${pkgVersion} && mkdir -p versions/v${pkgVersion}
 cp -R .cache/gh-pages/v${pkgVersion}/* versions/v${pkgVersion}/
 rm -rf autogen index.* && cp -R .cache/gh-pages/v${pkgVersion}/docsite/* ./
 
+versionArrayStr=`ls -l versions | awk '{print $9}' | tr "\n" " " | xargs | sed 's/ /", "/g;  s/^/["/;  s/$/"]/'`;
+echo "var historyVersions = ${versionArrayStr};" > history_versions.js
+
 git add . && git commit -am "chore(release-docsite): v${pkgVersion}"
 git push origin gh-pages
 

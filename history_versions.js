@@ -1,1 +1,1 @@
-var historyVersions = ["v0.0.6", "v0.0.7", "v0.0.8", "v0.0.9"];
+var historyVersions = ["v0.0.10", "v0.0.6", "v0.0.7", "v0.0.8", "v0.0.9"];

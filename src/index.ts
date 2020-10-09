@@ -8,9 +8,9 @@ import LinesEllipsis from '../components/lines-ellipsis/lines-ellipsis';
 import { VueConstructor } from 'vue';
 
 const components = [
-  { name: 'xv-hello-world', component: HelloWorld },
-  { name: 'xv-switch-controller', component: SwitchController },
-  { name: 'xv-lines-ellipsis', component: LinesEllipsis },
+  { name: 'XvHelloWorld', component: HelloWorld },
+  { name: 'XvSwitchController', component: SwitchController },
+  { name: 'XvLinesEllipsis', component: LinesEllipsis },
 ];
 
 function install(Vue: VueConstructor, opts = {}) {

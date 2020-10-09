@@ -21,7 +21,7 @@ for (const key in components) {
   file = file.replace(new RegExp(path.extname(file)), '');
   importLines.push(`import ${keyName} from '.${file}';`);
   exportLines.push(`${keyName},`);
-  componentInfoListStr += `  { name: 'xv-${key}', component: ${keyName} },\n`;
+  componentInfoListStr += `  { name: 'Xv${keyName}', component: ${keyName} },\n`;
 }
 componentInfoListStr += ']';
 

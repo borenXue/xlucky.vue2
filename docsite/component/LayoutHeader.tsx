@@ -1,8 +1,12 @@
 import { Vue, Component, Prop } from 'vue-property-decorator';
 
 function getRelativeUri(str: string) {
-  let history_versions_js_uri = window.location.pathname.replace(/index\.html$/, '') + '/' + str;
-  return history_versions_js_uri.replace(/\/{2,}/g, '/');
+  let uri = window.location.pathname.replace(/index\.html$/, '');
+  if (uri.indexOf('/versions/') >= 0) {
+    uri = uri.substring(0, uri.indexOf('/versions/') + 1);
+  }
+  uri += `/${str}`;
+  return uri.replace(/\/{2,}/g, '/');
 }
 
 @Component({})

@@ -14,7 +14,16 @@
 
     <%= htmlWebpackPlugin.options.asserts %>
 
-    <script src="/history_versions.js"></script>
+    <script>
+      var history_versions_js_uri = window.location.pathname.replace(/index\.html$/, '') + '/history_versions.js';
+      history_versions_js_uri = history_versions_js_uri.replace(/\/\//g, '/');
+      const ele = document.createElement('script');
+      ele.onload = function () {
+        console.log('window.historyVersions: ', window.historyVersions);
+      };
+      ele.src = history_versions_js_uri;
+      document.head.appendChild(ele);
+    </script>
   </head>
   <body>
     <div id="app"></div>

@@ -65,6 +65,10 @@ export default class DocsiteLayoutHeader extends Vue {
     window.location.href = url;
   }
 
+  goLatestVersion() {
+    window.location.href = getRelativeUri('');
+  }
+
   render() {
     // 版本选择器
     let versionSelect: any = '';
@@ -88,7 +92,7 @@ export default class DocsiteLayoutHeader extends Vue {
 
     return (
       <header class='top-header'>
-        <div class='left-logo'>
+        <div class='left-logo' onClick={this.goLatestVersion}>
           {this.pkgName}
           <span>@{this.pkgVersion}</span>
         </div>

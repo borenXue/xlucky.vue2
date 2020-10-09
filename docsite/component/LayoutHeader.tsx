@@ -1,5 +1,10 @@
 import { Vue, Component, Prop } from 'vue-property-decorator';
 
+function getRelativeUri(str: string) {
+  let history_versions_js_uri = window.location.pathname.replace(/index\.html$/, '') + '/' + str;
+  return history_versions_js_uri.replace(/\/{2,}/g, '/');
+}
+
 @Component({})
 export default class DocsiteLayoutHeader extends Vue {
   @Prop() readonly currentLang!: string;
@@ -33,20 +38,18 @@ export default class DocsiteLayoutHeader extends Vue {
       this.historyVersionReady();
       return;
     }
-    let history_versions_js_uri = window.location.pathname.replace(/index\.html$/, '') + '/history_versions.js';
-    history_versions_js_uri = history_versions_js_uri.replace(/\/\//g, '/');
     const ele = document.createElement('script');
     ele.onload = () => {
       this.historyVersionReady();
     };
-    ele.src = history_versions_js_uri;
+    ele.src = getRelativeUri('/history_versions.js');
     document.head.appendChild(ele);
   }
   historyVersionReady() {
     this.versionList = ((window as any).historyVersions || [])
       .reverse()
       .filter((item: string) => item !== this.currentVersion)
-      .map((v: any) => ({ version: v, url: `/versions/${v}/docsite/index.html` }));
+      .map((v: any) => ({ version: v, url: getRelativeUri(`/versions/${v}/docsite/index.html`) }));
   }
 
   switchLang(lang: string) {

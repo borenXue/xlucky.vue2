@@ -3,7 +3,7 @@ export pkgVersion=`cat package.json | grep "\"version\"" | sed 's/.*"version".*"
 # 1、修改版本号: package.json 与 package-lock.json
 npm run build
 #   指定 docsite 中 index.html 内写的 sdk 的版本号
-sed -i'.index.backup.html' -e "s/xlucky\.vue2/xlucky\.vue2@${pkgVersion}/g" lib/docsite/index.html
+sed -i'.original' -e "s/xlucky\.vue2/xlucky\.vue2@${pkgVersion}/g" lib/docsite/index.html
 git add package.json package-lock.json
 git commit -am "chore(release): v${pkgVersion}"
 

@@ -1,6 +1,6 @@
 {
   "name": "xlucky.vue2",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Higher-level components library based on vue2.0 && element-ui.",
   "main": "lib/xlucky-vue2.common.js",
   "style": "lib/index.css",

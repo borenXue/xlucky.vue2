@@ -9,6 +9,11 @@ import xlucky from 'xlucky.vue2';
 
 Vue.use(xlucky);
 
+(window as any).pkgInfos = {
+  name: process.env.PKG_NAME,
+  version: process.env.PKG_VERSION,
+};
+
 // Vue.filter(xlucky.filterArray.name, xlucky.filterArray);
 // Vue.filter(xlucky.filterArrayMulti.name, xlucky.filterArrayMulti);
 // Vue.filter(xlucky.filterBoolean.name, xlucky.filterBoolean);

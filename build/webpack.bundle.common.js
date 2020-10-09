@@ -1,8 +1,10 @@
 const path = require('path');
+const webpack = require('webpack');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StylelintWebpackPlugin = require('stylelint-webpack-plugin');
 const { resolve } = require('./helper');
+const pkg = require('../package.json');
 
 const sourceMap = process.env.NODE_ENV !== 'production';
 const devtool = sourceMap ? (process.env.WEBPACK_DEV_SERVER ? 'inline-source-map' : 'cheap-source-map') : undefined;
@@ -29,7 +31,16 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.json', '.scss', '.sass'],
   },
-  plugins: [new StylelintWebpackPlugin(), new MiniCssExtractPlugin({ filename: 'index.css' }), new ProgressBarPlugin()],
+  // eslint-disable-next-line
+  plugins: [
+    new StylelintWebpackPlugin(),
+    new MiniCssExtractPlugin({ filename: 'index.css' }),
+    new ProgressBarPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.PKG_VERSION': `'${pkg.version}'`,
+      'process.env.PKG_NAME': `'${pkg.name}'`,
+    }),
+  ],
   module: {
     rules: [
       {

@@ -16,6 +16,40 @@ body,
   }
 }
 
+.design-box {
+  width: 100%;
+  padding: 50px 60px;
+  text-align: center;
+
+  .tip {
+    font-size: 16px;
+    color: #5e6d82;
+    line-height: 1.5em;
+  }
+
+  .line {
+    margin-top: 40px;
+
+    &.desc {
+      font-size: 14px;
+      color: #5e6d82;
+      line-height: 1.5em;
+    }
+
+    label {
+      font-weight: 400;
+      color: #1f2f3d;
+      margin-right: 20px;
+    }
+
+    span {
+      font-size: 14px;
+      color: #5e6d82;
+      line-height: 1.5em;
+    }
+  }
+}
+
 #docsite-layout {
   display: flex;
   flex-direction: column;
@@ -46,6 +80,14 @@ body,
 
   .my-el-menu-vertical:not(.el-menu--collapse) {
     width: 200px;
+  }
+
+  .left-logo {
+    color: #429fff;
+
+    span {
+      color: #b2b3b7;
+    }
   }
 
   .top-header {
@@ -79,7 +121,8 @@ body,
         }
       }
 
-      .nav-lang {
+      .nav-lang,
+      .nav-version {
         cursor: pointer;
         padding: 0 20px;
         height: 100%;
@@ -209,40 +252,6 @@ table {
   th:first-child,
   td:first-child {
     padding-left: 10px;
-  }
-}
-
-.design-box {
-  width: 100%;
-  padding: 50px 60px;
-  text-align: center;
-
-  .tip {
-    font-size: 16px;
-    color: #5e6d82;
-    line-height: 1.5em;
-  }
-
-  .line {
-    margin-top: 40px;
-
-    &.desc {
-      font-size: 14px;
-      color: #5e6d82;
-      line-height: 1.5em;
-    }
-
-    label {
-      font-weight: 400;
-      color: #1f2f3d;
-      margin-right: 20px;
-    }
-
-    span {
-      font-size: 14px;
-      color: #5e6d82;
-      line-height: 1.5em;
-    }
   }
 }
 

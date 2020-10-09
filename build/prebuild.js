@@ -51,7 +51,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '${pkg.version}',
+  version: process.env.PKG_VERSION,
   install,
   filterArray,
   filterArrayMulti,

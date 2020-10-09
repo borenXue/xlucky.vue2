@@ -30,7 +30,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '0.0.7',
+  version: process.env.PKG_VERSION,
   install,
   filterArray,
   filterArrayMulti,

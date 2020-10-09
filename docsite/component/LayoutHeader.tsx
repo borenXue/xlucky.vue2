@@ -29,6 +29,20 @@ export default class DocsiteLayoutHeader extends Vue {
   }
 
   mounted() {
+    if ('historyVersion' in window) {
+      this.historyVersionReady();
+      return;
+    }
+    let history_versions_js_uri = window.location.pathname.replace(/index\.html$/, '') + '/history_versions.js';
+    history_versions_js_uri = history_versions_js_uri.replace(/\/\//g, '/');
+    const ele = document.createElement('script');
+    ele.onload = () => {
+      this.historyVersionReady();
+    };
+    ele.src = history_versions_js_uri;
+    document.head.appendChild(ele);
+  }
+  historyVersionReady() {
     this.versionList = ((window as any).historyVersions || [])
       .reverse()
       .filter((item: string) => item !== this.currentVersion)

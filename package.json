@@ -128,6 +128,6 @@
     "segment-js": "~1.1.2",
     "vue-class-component": "~7.2.5",
     "vue-property-decorator": "~9.0.0",
-    "xtools_js": "~1.4.7"
+    "xtools_js": "^1.4.8"
   }
 }

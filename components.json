@@ -1,5 +1,6 @@
 {
   "hello-world": "./components/hello-world/hello-world.tsx",
+  "file-download": "./components/file-download/file-download.tsx",
   "switch-controller": "./components/switch-controller/switch-controller.tsx",
   "lines-ellipsis": "./components/lines-ellipsis/lines-ellipsis.tsx"
 }

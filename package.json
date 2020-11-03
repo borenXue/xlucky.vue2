@@ -66,13 +66,14 @@
     "@types/markdown-it": "^10.0.2",
     "@typescript-eslint/eslint-plugin": "^4.1.0",
     "@typescript-eslint/parser": "^4.1.0",
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.2.1",
+    "@vue/babel-preset-jsx": "^1.2.4",
     "@vue/component-compiler": "^4.2.3",
     "autoprefixer": "^9.8.6",
     "babel-eslint": "^10.1.0",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-loader": "^8.1.0",
     "babel-plugin-syntax-jsx": "^6.18.0",
-    "babel-plugin-transform-vue-tsx": "^3510.0.3",
     "cache-loader": "^4.1.0",
     "camel-case": "^4.1.1",
     "chokidar": "^3.4.2",
@@ -122,11 +123,11 @@
     "vue": "^2.6.12"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
-    "d3-ease": "^2.0.0",
-    "segment-js": "^1.1.2",
-    "vue-class-component": "^7.2.5",
-    "vue-property-decorator": "^9.0.0",
-    "xtools_js": "^1.4.2"
+    "core-js": "~3.6.5",
+    "d3-ease": "~2.0.0",
+    "segment-js": "~1.1.2",
+    "vue-class-component": "~7.2.5",
+    "vue-property-decorator": "~9.0.0",
+    "xtools_js": "~1.4.7"
   }
 }

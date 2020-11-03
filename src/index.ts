@@ -3,17 +3,22 @@
 
 import { filterArray, filterArrayMulti, filterBoolean, filterMoney, filterTime } from './filters';
 import HelloWorld from '../components/hello-world/hello-world';
+import FileDownload from '../components/file-download/file-download';
 import SwitchController from '../components/switch-controller/switch-controller';
 import LinesEllipsis from '../components/lines-ellipsis/lines-ellipsis';
 import { VueConstructor } from 'vue';
+import { calcFinalOpts, XluckyOpts } from './options';
 
 const components = [
   { name: 'XvHelloWorld', component: HelloWorld },
+  { name: 'XvFileDownload', component: FileDownload },
   { name: 'XvSwitchController', component: SwitchController },
   { name: 'XvLinesEllipsis', component: LinesEllipsis },
 ];
 
-function install(Vue: VueConstructor, opts = {}) {
+function install(Vue: VueConstructor, opts?: XluckyOpts) {
+  Vue.prototype.$xlucky = calcFinalOpts(opts);
+
   components.forEach((item) => {
     Vue.component(item.name, item.component);
   });
@@ -38,6 +43,7 @@ export default {
   filterMoney,
   filterTime,
   HelloWorld,
+  FileDownload,
   SwitchController,
   LinesEllipsis,
 };

@@ -94,7 +94,7 @@ export default class DocsiteLayoutHeader extends Vue {
       <header class='top-header'>
         <div class='left-logo' onClick={this.goLatestVersion}>
           {this.pkgName}
-          <span>@{this.pkgVersion}</span>
+          {/* <span>@{this.pkgVersion}</span> */}
         </div>
         <div class='button-box'>
           <router-link tag='div' class='button-item' key='document' to={`/${this.currentLang}/synopsis`}>

@@ -1,6 +1,6 @@
 import { Vue, Component, Prop } from 'vue-property-decorator';
 import { fileDownload } from 'xtools_js';
-import { FileDownloadParamsData, FileDownloadParamsHeaders, UrlQueryParams } from 'xtools_js/lib/other/file-download';
+import { FileDownloadParamsData, FileDownloadParamsHeaders, UrlQueryParams, WithCredentialsFunction } from 'xtools_js/lib/other/file-download';
 import './file-download.scss';
 
 @Component({})
@@ -16,8 +16,9 @@ export default class FileDownload extends Vue {
   @Prop() readonly name?: string;
   @Prop() readonly params?: UrlQueryParams;
   @Prop() readonly data?: FileDownloadParamsData;
-  @Prop({ default: true }) readonly credentials!: boolean;
+  @Prop({ default: true }) readonly credentials!: boolean | WithCredentialsFunction;
   @Prop() readonly headers?: FileDownloadParamsHeaders;
+  @Prop() readonly errorCb?: (err: Error) => void;
 
   fileDownload() {
     this.downloading = true;
@@ -31,6 +32,7 @@ export default class FileDownload extends Vue {
         this.$emit('success');
       },
       errorCb: (err: Error) => {
+        if (typeof this.errorCb === 'function') this.errorCb(err);
         this.$emit('error', err);
       },
       finalCb: (err?: Error) => {

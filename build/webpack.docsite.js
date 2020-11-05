@@ -12,6 +12,7 @@ webpackBundleConfig.output.path = resolve('./lib/docsite');
 webpackBundleConfig.output.filename = 'index.js';
 delete webpackBundleConfig.output.libraryTarget;
 
+webpackBundleConfig.externals = {};
 if (process.env.NODE_ENV === 'production') {
   webpackBundleConfig.externals['xlucky.vue2'] = 'xlucky';
 } else {

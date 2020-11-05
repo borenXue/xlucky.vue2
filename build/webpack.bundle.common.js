@@ -3,11 +3,27 @@ const webpack = require('webpack');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StylelintWebpackPlugin = require('stylelint-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const { resolve } = require('./helper');
 const pkg = require('../package.json');
 
 const sourceMap = process.env.NODE_ENV !== 'production';
 const devtool = sourceMap ? (process.env.WEBPACK_DEV_SERVER ? 'inline-source-map' : 'cheap-source-map') : undefined;
+
+const optimization =
+  process.env.NODE_ENV === 'production'
+    ? {
+        minimize: true,
+        minimizer: [
+          new TerserPlugin({
+            terserOptions: {
+              keep_classnames: true,
+              keep_fnames: true,
+            },
+          }),
+        ],
+      }
+    : undefined;
 
 module.exports = {
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
@@ -19,6 +35,7 @@ module.exports = {
     libraryTarget: 'commonjs2',
   },
   devtool,
+  optimization,
   devServer: {
     compress: false,
     disableHostCheck: true,

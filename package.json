@@ -1,16 +1,17 @@
 {
   "name": "xlucky.vue2",
-  "version": "0.1.7",
+  "version": "0.1.10",
   "description": "Higher-level components library based on vue2.0 && element-ui.",
-  "main": "lib/xlucky-vue2.common.js",
+  "main": "lib/index.js",
   "style": "lib/index.css",
-  "unpkg": "lib/index.js",
+  "unpkg": "lib/xlucky.umd.js",
+  "typings": "lib/src/index.d.ts",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.docsite.js & npm run prebuild -- watch",
     "build": "cross-env NODE_ENV=production run-s clean prebuild build:*",
     "build:bundle-commonjs": "webpack --config build/webpack.bundle.common.js",
     "build:bundle-umd": "webpack --config build/webpack.bundle.umd.js",
-    "build:components": "webpack --config build/webpack.components.js",
+    "-build:components": "webpack --config build/webpack.components.js",
     "build:docsite": "webpack --config build/webpack.docsite.js",
     "clean": "rm -rf autogen dist lib",
     "prebuild": "node build/prebuild.js",
@@ -67,12 +68,12 @@
     "@typescript-eslint/eslint-plugin": "^4.1.0",
     "@typescript-eslint/parser": "^4.1.0",
     "@vue/babel-helper-vue-jsx-merge-props": "^1.2.1",
+    "@vue/babel-plugin-transform-vue-jsx": "^1.2.1",
     "@vue/component-compiler": "^4.2.3",
     "autoprefixer": "^9.8.6",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-syntax-jsx": "^6.18.0",
-    "babel-plugin-transform-vue-jsx": "^4.0.1",
     "cache-loader": "^4.1.0",
     "camel-case": "^4.1.1",
     "chokidar": "^3.4.2",
@@ -122,13 +123,13 @@
     "vue": "^2.6.12"
   },
   "dependencies": {
+    "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "core-js": "~3.6.5",
     "d3-ease": "~2.0.0",
     "segment-js": "~1.1.2",
     "tslib": "^1.13.0",
     "vue-class-component": "~7.2.5",
     "vue-property-decorator": "~9.0.0",
-    "babel-helper-vue-jsx-merge-props": "^2.0.3",
-    "xtools_js": "^1.4.12"
+    "xtools_js": "^1.4.13"
   }
 }

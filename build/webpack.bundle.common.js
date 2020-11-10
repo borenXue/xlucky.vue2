@@ -25,7 +25,7 @@ module.exports = {
   output: {
     path: resolve('lib'),
     publicPath: '',
-    filename: 'xlucky-vue2.common.js',
+    filename: 'index.js',
     libraryTarget: 'commonjs2',
   },
   devtool,
@@ -68,7 +68,11 @@ module.exports = {
       {
         test: /\.(ts|js)x?$/i,
         exclude: /(node_modules|bower_components)/,
-        use: [{ loader: 'cache-loader', options: { cacheDirectory: '.cache/ts-loader' } }, { loader: 'babel-loader' }, { loader: 'ts-loader', options: { transpileOnly: true } }],
+        use: [
+          { loader: 'cache-loader', options: { cacheDirectory: '.cache/ts-loader' } },
+          { loader: 'babel-loader' },
+          { loader: 'ts-loader', options: { transpileOnly: process.env.NODE_ENV !== 'production' } },
+        ],
       },
       {
         test: /\.(css|scss|sass)$/i,

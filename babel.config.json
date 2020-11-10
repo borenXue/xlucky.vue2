@@ -1,7 +1,7 @@
 {
   "presets": ["@babel/env"],
   "plugins": [
-    "transform-vue-jsx",
+    "@vue/transform-vue-jsx",
     [
       "@babel/proposal-decorators",
       {

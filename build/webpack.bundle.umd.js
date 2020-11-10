@@ -2,7 +2,7 @@ const webpackBundleConfig = require('./webpack.bundle.common');
 
 webpackBundleConfig.output = {
   ...webpackBundleConfig.output,
-  filename: 'index.js',
+  filename: 'xlucky.umd.js',
   libraryTarget: 'umd',
   libraryExport: 'default',
   library: 'xlucky',

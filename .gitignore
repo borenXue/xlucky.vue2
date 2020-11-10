@@ -1,7 +1,6 @@
 
 local-files/
 lib/
-src/index.ts
 autogen
 
 # Created by https://www.toptal.com/developers/gitignore/api/macos,visualstudiocode,sublimetext,webstorm,node,windows

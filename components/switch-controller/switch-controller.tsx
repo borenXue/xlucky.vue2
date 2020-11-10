@@ -2,6 +2,7 @@ import { Vue, Component } from 'vue-property-decorator';
 import Segment from 'segment-js';
 import { easeBounceOut, easeElasticOut, easeElasticIn } from 'd3-ease';
 import './switch-controller.scss';
+import { CreateElement } from 'vue';
 
 @Component({
   props: {
@@ -175,7 +176,7 @@ export default class SwitchController extends Vue {
     }
   }
 
-  render() {
+  render(h: CreateElement) {
     return (
       <div class='xv-switch-controller' style={this.styleComponent}>
         <div ref='btn' class='xv-switch-controller--btn' onClick={this.toggle} />

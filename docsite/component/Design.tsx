@@ -1,3 +1,4 @@
+import { CreateElement } from 'vue';
 import { Vue, Component, Prop } from 'vue-property-decorator';
 import LayoutHeader from './LayoutHeader';
 
@@ -5,7 +6,7 @@ import LayoutHeader from './LayoutHeader';
 export default class Design extends Vue {
   @Prop() readonly lang!: string;
 
-  render() {
+  render(h: CreateElement) {
     const childs = [];
 
     const zhCN = (

@@ -1,3 +1,4 @@
+import { CreateElement } from 'vue';
 import { Vue, Component, Prop } from 'vue-property-decorator';
 import { fileDownload } from 'xtools_js';
 import { FileDownloadParamsData, FileDownloadParamsHeaders, UrlQueryParams, WithCredentialsFunction } from 'xtools_js/lib/other/file-download';
@@ -45,7 +46,7 @@ export default class FileDownload extends Vue {
     });
   }
 
-  render() {
+  render(h: CreateElement) {
     return (
       <el-button
         class='xv-file-download'

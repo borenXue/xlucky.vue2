@@ -1,3 +1,4 @@
+import { CreateElement } from 'vue';
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
 import { SidebarItem } from '../router';
 
@@ -24,7 +25,7 @@ export default class DocsiteLayoutSidebar extends Vue {
     this.defaultOpeneds = list;
   }
 
-  render() {
+  render(h: CreateElement) {
     return (
       <div id='layout-sidebar'>
         <el-menu collapse={this.collapse} class='my-el-menu-vertical' default-openeds={this.defaultOpeneds}>

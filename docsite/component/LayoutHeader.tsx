@@ -1,3 +1,4 @@
+import { CreateElement } from 'vue';
 import { Vue, Component, Prop } from 'vue-property-decorator';
 
 function getRelativeUri(str: string) {
@@ -69,7 +70,7 @@ export default class DocsiteLayoutHeader extends Vue {
     window.location.href = getRelativeUri('');
   }
 
-  render() {
+  render(h: CreateElement) {
     // 版本选择器
     let versionSelect: any = '';
     if (this.versionList && this.versionList.length > 0) {

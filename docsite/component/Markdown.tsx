@@ -1,3 +1,4 @@
+import { CreateElement } from 'vue';
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
 import { ajax } from './helper';
 
@@ -25,7 +26,7 @@ export default class Document extends Vue {
     });
   }
 
-  render() {
+  render(h: CreateElement) {
     return <div class='view-markdown' domPropsInnerHTML={this.html}></div>;
   }
 }

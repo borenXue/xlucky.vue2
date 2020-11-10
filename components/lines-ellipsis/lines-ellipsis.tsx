@@ -1,3 +1,4 @@
+import { CreateElement } from 'vue';
 import { Vue, Component } from 'vue-property-decorator';
 
 function prevSibling(node: HTMLElement, count: number) {
@@ -150,7 +151,7 @@ export default class LinesEllipsis extends Vue {
     return this.isMoreSpan(ele.parentElement);
   }
 
-  render() {
+  render(h: CreateElement) {
     return <div class='xv-lines-ellipsis' onClick={this.clickHandler}></div>;
   }
 }

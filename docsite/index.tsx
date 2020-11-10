@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue, { CreateElement } from 'vue';
 import VueRouter from 'vue-router';
 import { Component } from 'vue-property-decorator';
 import './index.scss';
@@ -24,7 +24,7 @@ Vue.use(xlucky);
 
 @Component({})
 class App extends Vue {
-  render() {
+  render(h: CreateElement) {
     return <router-view />;
   }
 }

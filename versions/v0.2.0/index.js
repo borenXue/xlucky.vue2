@@ -233,8 +233,8 @@ function filterArrayMulti(idList, arr) {
 function filterTime(value, format) {
   return Object(external_xtools_js_["formatDate"])(value, format || 'YYYY-MM-DD HH:mm:ss');
 }
-function filterMoney(value) {
-  return Number.isNaN(Number(value)) ? value : Object(external_xtools_js_["formatMoney"])(Number(value));
+function filterMoney(value, config) {
+  return Number.isNaN(Number(value)) ? value : Object(external_xtools_js_["formatMoney"])(Number(value), config);
 }
 function filterBoolean(value) {
   var trueDesc = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '是';

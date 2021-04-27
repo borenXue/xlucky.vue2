@@ -4,7 +4,9 @@ import { fileDownload } from 'xtools_js';
 import { FileDownloadParamsData, FileDownloadParamsHeaders, UrlQueryParams, WithCredentialsFunction } from 'xtools_js/lib/other/file-download';
 import './file-download.scss';
 
-@Component({})
+@Component({
+  name: 'XvFileDownload',
+})
 export default class FileDownload extends Vue {
   downloading = false;
 

@@ -11,6 +11,7 @@ function prevSibling(node: HTMLElement, count: number) {
 }
 
 @Component({
+  name: 'XvLinesEllipsis',
   props: {
     ellipsis: { type: String, default: '...' },
     text: { type: String, required: true },

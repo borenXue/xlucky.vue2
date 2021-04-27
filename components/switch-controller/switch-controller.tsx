@@ -5,6 +5,7 @@ import './switch-controller.scss';
 import { CreateElement } from 'vue';
 
 @Component({
+  name: 'XvSwitchController',
   props: {
     value: { type: Boolean, default: true },
     duration: { type: Number, default: 800 },

@@ -2,5 +2,9 @@
   "hello-world": "./components/hello-world/hello-world.tsx",
   "file-download": "./components/file-download/file-download.tsx",
   "switch-controller": "./components/switch-controller/switch-controller.tsx",
-  "lines-ellipsis": "./components/lines-ellipsis/lines-ellipsis.tsx"
+  "lines-ellipsis": "./components/lines-ellipsis/lines-ellipsis.tsx",
+  "layout": "./components/layout/layout.tsx",
+  "empty-layout": "./components/layout/empty-layout/empty-layout.tsx",
+  "layout-breadcrumb": "./components/layout/layout-breadcrumb/layout-breadcrumb.tsx",
+  "layout-sidebar": "./components/layout/layout-sidebar/layout-sidebar.tsx"
 }

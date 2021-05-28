@@ -6,6 +6,10 @@ import HelloWorld from '../components/hello-world/hello-world';
 import FileDownload from '../components/file-download/file-download';
 import SwitchController from '../components/switch-controller/switch-controller';
 import LinesEllipsis from '../components/lines-ellipsis/lines-ellipsis';
+import Layout from '../components/layout/layout';
+import EmptyLayout from '../components/layout/empty-layout/empty-layout';
+import LayoutBreadcrumb from '../components/layout/layout-breadcrumb/layout-breadcrumb';
+import LayoutSidebar from '../components/layout/layout-sidebar/layout-sidebar';
 import { VueConstructor } from 'vue';
 import { calcFinalOpts, XluckyOpts } from './options';
 
@@ -14,6 +18,10 @@ const components = [
   { name: 'XvFileDownload', component: FileDownload },
   { name: 'XvSwitchController', component: SwitchController },
   { name: 'XvLinesEllipsis', component: LinesEllipsis },
+  { name: 'XvLayout', component: Layout },
+  { name: 'XvEmptyLayout', component: EmptyLayout },
+  { name: 'XvLayoutBreadcrumb', component: LayoutBreadcrumb },
+  { name: 'XvLayoutSidebar', component: LayoutSidebar },
 ];
 
 function install(Vue: VueConstructor, opts?: XluckyOpts) {
@@ -46,4 +54,8 @@ export default {
   FileDownload,
   SwitchController,
   LinesEllipsis,
+  Layout,
+  EmptyLayout,
+  LayoutBreadcrumb,
+  LayoutSidebar,
 };

@@ -1,0 +1,48 @@
+.xv-layout {
+  display: flex;
+  background-color: #f0f2f5;
+  height: 100%;
+
+  .xv-layout__right {
+    flex: 1;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+
+    .xv-layout__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: white;
+      height: 60px;
+      line-height: 60px;
+      padding: 0 4px;
+      box-shadow: 0 1px 4px rgba(0, 21, 41, 0.1);
+
+      i.el-icon-s-fold,
+      i.el-icon-s-unfold {
+        color: rgb(44, 62, 80);
+        padding: 15px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      i.el-icon-refresh {
+        margin-left: 10px;
+        color: rgb(44, 62, 80);
+        padding: 10px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      span.right {
+        padding-right: 10px;
+      }
+    }
+
+    .xv-layout__view_wrapper {
+      padding: 10px;
+    }
+  }
+}

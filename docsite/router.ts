@@ -10,9 +10,13 @@ function CamelCase(str: string) {
   return keyName[0].toUpperCase() + keyName.substring(1);
 }
 
+const componentNoDoc = ['empty-layout', 'layout-sidebar'];
+
 // 生成组件文档相关路由
 const componentsRouterList: RouteConfigSingleView[] = [];
 for (const key in componentsJson) {
+  if (componentNoDoc.indexOf(key) >= 0) continue;
+
   componentsRouterList.push({
     path: `/components/${key}`,
     component: Markdown,

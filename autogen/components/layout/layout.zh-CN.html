@@ -1,0 +1,397 @@
+<h1>Layout 布局组件</h1>
+
+    <section class="fence-livedemo-vue livedemo-1622196746032-glev5elgjv8">
+      <textarea style="width: 0;height: 0;position: absolute;top:-20px;" class="copy-box">
+
+&lt;template&gt;
+  &lt;div class=&quot;demo-layout-001&quot;&gt;
+    &lt;xv-layout v-model=&quot;collapse&quot; @change=&quot;valueChange&quot; :sidebar=&quot;sidebar&quot;&gt;
+      &lt;div&gt;content 内容001&lt;/div&gt;
+      &lt;br /&gt;
+      &lt;div&gt;content 内容002&lt;/div&gt;
+      &lt;span slot=&quot;header-left&quot; style=&quot;color:green&quot;&gt; 自定义部分 &lt;/span&gt;
+      &lt;span slot=&quot;header-right&quot; style=&quot;color:blue&quot;&gt; 自定义部分 &lt;/span&gt;
+    &lt;/xv-layout&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      collapse: true,
+      sidebar: [
+        { path: 'http://www.baidu.com', meta: { title: '百度' } },
+        { path: '/aa', hidden: true, meta: { title: '隐藏条目' } },
+        {
+          path: '/auth',
+          meta: { title: '权限模块管理' },
+          children: [
+            { path: '/auth/user', meta: { title: '用户管理' } },
+            { path: '/auth/role', meta: { title: '角色管理' } },
+            { path: '/auth/resource', meta: { title: '资源管理' } },
+          ],
+        },
+      ],
+    };
+  },
+  methods: {
+    valueChange(val) {
+      this.collapse = val;
+    },
+  },
+};
+&lt;/script&gt;
+
+&lt;style lang=&quot;scss&quot;&gt;
+.demo-layout-001 {
+  height: 400px;
+  width: 100%;
+  border: 1px solid #429fff;
+}
+&lt;/style&gt;
+</textarea>
+
+      <div class="live-box">
+        <div class="live-box-app"></div>
+      </div>
+
+      <div class="source-box">
+        <pre>
+          <code>
+            
+
+&lt;template&gt;
+  &lt;div class=&quot;demo-layout-001&quot;&gt;
+    &lt;xv-layout v-model=&quot;collapse&quot; @change=&quot;valueChange&quot; :sidebar=&quot;sidebar&quot;&gt;
+      &lt;div&gt;content 内容001&lt;/div&gt;
+      &lt;br /&gt;
+      &lt;div&gt;content 内容002&lt;/div&gt;
+      &lt;span slot=&quot;header-left&quot; style=&quot;color:green&quot;&gt; 自定义部分 &lt;/span&gt;
+      &lt;span slot=&quot;header-right&quot; style=&quot;color:blue&quot;&gt; 自定义部分 &lt;/span&gt;
+    &lt;/xv-layout&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      collapse: true,
+      sidebar: [
+        { path: 'http://www.baidu.com', meta: { title: '百度' } },
+        { path: '/aa', hidden: true, meta: { title: '隐藏条目' } },
+        {
+          path: '/auth',
+          meta: { title: '权限模块管理' },
+          children: [
+            { path: '/auth/user', meta: { title: '用户管理' } },
+            { path: '/auth/role', meta: { title: '角色管理' } },
+            { path: '/auth/resource', meta: { title: '资源管理' } },
+          ],
+        },
+      ],
+    };
+  },
+  methods: {
+    valueChange(val) {
+      this.collapse = val;
+    },
+  },
+};
+&lt;/script&gt;
+
+&lt;style lang=&quot;scss&quot;&gt;
+.demo-layout-001 {
+  height: 400px;
+  width: 100%;
+  border: 1px solid #429fff;
+}
+&lt;/style&gt;
+
+          </code>
+        </pre>
+      </div>
+
+      <div class="conrol-bar">
+        <div class="svgbox">
+          <svg class="icon" width="15px" height="8px" viewBox="0 0 1877 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <path d="M815.275 913.75c68.266 66.389 179.541 65.706 246.954 0l673.11-655.19c134.826-130.901 90.965-237.227-97.28-237.227H239.616c-188.587 0-232.107 106.496-97.28 237.398l672.939 655.018z" fill="#303133" />
+          </svg>
+        </div>
+        <span class="toggle-code show">显示代码</span>
+        <span class="toggle-code hide">隐藏代码</span>
+        <div class="right-btns flex-v-center">
+          <!-- CodeSandBox -->
+          <div class="svg-wrapper flex-v-center" data-action="codesandbox">
+            <svg viewBox="0 0 1024 1024" fill="currentColor">
+              <path d="M755 140.3l0.5-0.3h0.3L512 0 268.3 140h-0.3l0.8 0.4L68.6 256v512L512 1024l443.4-256V256L755 140.3z m-30 506.4v171.2L548 920.1V534.7L883.4 341v215.7l-158.4 90z m-584.4-90.6V340.8L476 534.4v385.7L300 818.5V646.7l-159.4-90.6zM511.7 280l171.1-98.3 166.3 96-336.9 194.5-337-194.6 165.7-95.7L511.7 280z"></path>
+            </svg>
+            <div class="tip-toast">
+              在 CodeSandBox 中打开
+              <span></span>
+            </div>
+          </div>
+          <!-- CodePen -->
+          <div class="svg-wrapper flex-v-center" data-action="codepen">
+            <svg viewBox="0 0 15 15" fill="currentColor">
+              <path d="M14.777304,4.75062256 L7.77734505,0.0839936563 C7.60939924,-0.0279665065 7.39060662,-0.0279665065 7.22266081,0.0839936563 L0.222701813,4.75062256 C0.0836082937,4.84334851 5.66973453e-05,4.99945222 4.6875e-05,5.16662013 L4.6875e-05,9.83324903 C4.6875e-05,10.0004355 0.0836088906,10.1565596 0.222701812,10.2492466 L7.22266081,14.9158755 C7.30662908,14.9718752 7.403316,14.999875 7.50000292,14.999875 C7.59668984,14.999875 7.69337678,14.9718752 7.77734505,14.9158755 L14.777304,10.2492466 C14.9163976,10.1565206 14.9999492,10.0004169 14.999959,9.83324903 L14.999959,5.16662013 C14.9999492,4.99945222 14.9163976,4.84334851 14.777304,4.75062256 Z M7.50000292,9.23237755 L4.90139316,7.4999502 L7.50000292,5.76755409 L10.0986127,7.4999502 L7.50000292,9.23237755 Z M8,4.89905919 L8,1.43423573 L13.598561,5.16665138 L10.9999824,6.89904747 L8,4.89905919 Z M7.00000586,4.89905919 L4.00002344,6.89904747 L1.40141366,5.16665138 L7.00000586,1.43423573 L7.00000586,4.89905919 Z M3.09865372,7.4999502 L1.00004102,8.89903575 L1.00004102,6.10089589 L3.09865372,7.4999502 Z M4.00002344,8.10085292 L7.00000586,10.1008412 L7.00000586,13.5656334 L1.40141366,9.83328028 L4.00002344,8.10085292 Z M8,10.1008412 L10.9999824,8.10085292 L13.5985922,9.83328028 L8,13.5656647 L8,10.1008412 L8,10.1008412 Z M11.9013521,7.4999502 L13.9999648,6.10089589 L13.9999648,8.899067 L11.9013521,7.4999502 Z"></path>
+            </svg>
+            <div class="tip-toast">
+              在 CodePen 中打开
+              <span></span>
+            </div>
+          </div>
+          <!-- Copy -->
+          <div class="svg-wrapper flex-v-center" data-action="copy">
+            <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="snippets" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+              <path d="M832 112H724V72c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v40H500V72c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v40H320c-17.7 0-32 14.3-32 32v120h-96c-17.7 0-32 14.3-32 32v632c0 17.7 14.3 32 32 32h512c17.7 0 32-14.3 32-32v-96h96c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM664 888H232V336h218v174c0 22.1 17.9 40 40 40h174v338zm0-402H514V336h.2L664 485.8v.2zm128 274h-56V456L544 264H360v-80h68v32c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-32h152v32c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-32h68v576z"></path>
+            </svg>
+            <div class="tip-toast clipboard-copy-btn" data-clipboard-action="copy" data-clipboard-target=".fence-livedemo-vue.livedemo-1622196746032-glev5elgjv8 .source-box">
+              复制代码
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script> 
+    
+    (function (componentUuid) {
+      /* script */
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+const __vue_script__ = {
+  data() {
+    return {
+      collapse: true,
+      sidebar: [
+        { path: 'http://www.baidu.com', meta: { title: '百度' } },
+        { path: '/aa', hidden: true, meta: { title: '隐藏条目' } },
+        {
+          path: '/auth',
+          meta: { title: '权限模块管理' },
+          children: [
+            { path: '/auth/user', meta: { title: '用户管理' } },
+            { path: '/auth/role', meta: { title: '角色管理' } },
+            { path: '/auth/resource', meta: { title: '资源管理' } },
+          ],
+        },
+      ],
+    };
+  },
+  methods: {
+    valueChange(val) {
+      this.collapse = val;
+    },
+  },
+};
+
+/* template */
+var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"demo-layout-001"},[_c('xv-layout',{attrs:{"sidebar":_vm.sidebar},on:{"change":_vm.valueChange},model:{value:(_vm.collapse),callback:function ($$v) {_vm.collapse=$$v},expression:"collapse"}},[_c('div',[_vm._v("content 内容001")]),_vm._v(" "),_c('br'),_vm._v(" "),_c('div',[_vm._v("content 内容002")]),_vm._v(" "),_c('span',{staticStyle:{"color":"green"},attrs:{"slot":"header-left"},slot:"header-left"},[_vm._v(" 自定义部分 ")]),_vm._v(" "),_c('span',{staticStyle:{"color":"blue"},attrs:{"slot":"header-right"},slot:"header-right"},[_vm._v(" 自定义部分 ")])])],1)}
+var __vue_staticRenderFns__ = []
+
+  /* style */
+  const __vue_inject_styles__ = function (inject) {
+    if (!inject) return
+    inject("data-v-3f31562a_0", { source: ".demo-layout-001{height:400px;width:100%;border:1px solid #429fff}", map: undefined, media: undefined })
+
+  }
+  /* scoped */
+  const __vue_scope_id__ = undefined
+  /* module identifier */
+  const __vue_module_identifier__ = undefined
+  /* functional template */
+  const __vue_is_functional_template__ = false
+  /* component normalizer */
+  function __vue_normalize__(
+    template, style, script,
+    scope, functional, moduleIdentifier, shadowMode,
+    createInjector, createInjectorSSR, createInjectorShadow
+  ) {
+    const component = (typeof script === 'function' ? script.options : script) || {}
+
+    // For security concerns, we use only base name in production mode.
+    component.__file = "abc.vue"
+
+    if (!component.render) {
+      component.render = template.render
+      component.staticRenderFns = template.staticRenderFns
+      component._compiled = true
+
+      if (functional) component.functional = true
+    }
+
+    component._scopeId = scope
+
+    if (true) {
+      let hook
+      if (false) {
+        // In SSR.
+        hook = function(context) {
+          // 2.3 injection
+          context =
+            context || // cached call
+            (this.$vnode && this.$vnode.ssrContext) || // stateful
+            (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+          // 2.2 with runInNewContext: true
+          if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+            context = __VUE_SSR_CONTEXT__
+          }
+          // inject component styles
+          if (style) {
+            style.call(this, createInjectorSSR(context))
+          }
+          // register component module identifier for async chunk inference
+          if (context && context._registeredComponents) {
+            context._registeredComponents.add(moduleIdentifier)
+          }
+        }
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        component._ssrRegister = hook
+      }
+      else if (style) {
+        hook = shadowMode 
+          ? function(context) {
+              style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot))
+            }
+          : function(context) {
+              style.call(this, createInjector(context))
+            }
+      }
+
+      if (hook !== undefined) {
+        if (component.functional) {
+          // register for functional component in vue file
+          const originalRender = component.render
+          component.render = function renderWithStyleInjection(h, context) {
+            hook.call(context)
+            return originalRender(h, context)
+          }
+        } else {
+          // inject component registration as beforeCreate hook
+          const existing = component.beforeCreate
+          component.beforeCreate = existing ? [].concat(existing, hook) : [hook]
+        }
+      }
+    }
+
+    return component
+  }
+  /* style inject */
+  function __vue_create_injector__() {
+    const styles = __vue_create_injector__.styles || (__vue_create_injector__.styles = {})
+    const isOldIE =
+      typeof navigator !== 'undefined' &&
+      /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase())
+
+    return function addStyle(id, css) {
+      if (document.querySelector('style[data-vue-ssr-id~="' + id + '"]')) return // SSR styles are present.
+
+      const group = isOldIE ? css.media || 'default' : id
+      const style = styles[group] || (styles[group] = { ids: [], parts: [], element: undefined })
+
+      if (!style.ids.includes(id)) {
+        let code = css.source
+        let index = style.ids.length
+
+        style.ids.push(id)
+
+        if (true && css.map) {
+          // https://developer.chrome.com/devtools/docs/javascript-debugging
+          // this makes source maps inside style tags work properly in Chrome
+          code += '\n/*# sourceURL=' + css.map.sources[0] + ' */'
+          // http://stackoverflow.com/a/26603875
+          code +=
+            '\n/*# sourceMappingURL=data:application/json;base64,' +
+            btoa(unescape(encodeURIComponent(JSON.stringify(css.map)))) +
+            ' */'
+        }
+
+        if (isOldIE) {
+          style.element = style.element || document.querySelector('style[data-group=' + group + ']')
+        }
+
+        if (!style.element) {
+          const head = document.head || document.getElementsByTagName('head')[0]
+          const el = style.element = document.createElement('style')
+          el.type = 'text/css'
+
+          if (css.media) el.setAttribute('media', css.media)
+          if (isOldIE) {
+            el.setAttribute('data-group', group)
+            el.setAttribute('data-next-index', '0')
+          }
+
+          head.appendChild(el)
+        }
+
+        if (isOldIE) {
+          index = parseInt(style.element.getAttribute('data-next-index'))
+          style.element.setAttribute('data-next-index', index + 1)
+        }
+
+        if (style.element.styleSheet) {
+          style.parts.push(code)
+          style.element.styleSheet.cssText = style.parts
+            .filter(Boolean)
+            .join('\n')
+        } else {
+          const textNode = document.createTextNode(code)
+          const nodes = style.element.childNodes
+          if (nodes[index]) style.element.removeChild(nodes[index])
+          if (nodes.length) style.element.insertBefore(textNode, nodes[index])
+          else style.element.appendChild(textNode)
+        }
+      }
+    }
+  }
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  const __vue_component__ = /*#__PURE__*/__vue_normalize__(
+    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    __vue_create_injector__,
+    undefined,
+    undefined
+  )
+
+  window[componentUuid] = __vue_component__
+    })('livedemo-1622196746032-glev5elgjv8');
+  ;
+
+    (function () {
+      var elementLiveDemo = document.querySelector('section.livedemo-1622196746032-glev5elgjv8');
+      if (elementLiveDemo) {
+        MarkdownItVueLiveDemo.setupVueLiveDemoItem(
+          elementLiveDemo, 'livedemo-1622196746032-glev5elgjv8', window['livedemo-1622196746032-glev5elgjv8'],
+          `%7B%22config%22%3A%7B%22scroller%22%3A%22.layout-content%22%2C%22codeSandBoxDataFn%22%3A%22codeSandBoxDataFn%22%2C%22codepenDataFn%22%3A%22codepenDataFn%22%7D%2C%22vueContent%22%3A%22%5Cn%5Cn%3Ctemplate%3E%5Cn%20%20%3Cdiv%20class%3D%5C%22demo-layout-001%5C%22%3E%5Cn%20%20%20%20%3Cxv-layout%20v-model%3D%5C%22collapse%5C%22%20%40change%3D%5C%22valueChange%5C%22%20%3Asidebar%3D%5C%22sidebar%5C%22%3E%5Cn%20%20%20%20%20%20%3Cdiv%3Econtent%20%E5%86%85%E5%AE%B9001%3C%2Fdiv%3E%5Cn%20%20%20%20%20%20%3Cbr%20%2F%3E%5Cn%20%20%20%20%20%20%3Cdiv%3Econtent%20%E5%86%85%E5%AE%B9002%3C%2Fdiv%3E%5Cn%20%20%20%20%20%20%3Cspan%20slot%3D%5C%22header-left%5C%22%20style%3D%5C%22color%3Agreen%5C%22%3E%20%E8%87%AA%E5%AE%9A%E4%B9%89%E9%83%A8%E5%88%86%20%3C%2Fspan%3E%5Cn%20%20%20%20%20%20%3Cspan%20slot%3D%5C%22header-right%5C%22%20style%3D%5C%22color%3Ablue%5C%22%3E%20%E8%87%AA%E5%AE%9A%E4%B9%89%E9%83%A8%E5%88%86%20%3C%2Fspan%3E%5Cn%20%20%20%20%3C%2Fxv-layout%3E%5Cn%20%20%3C%2Fdiv%3E%5Cn%3C%2Ftemplate%3E%5Cn%5Cn%3Cscript%3E%5Cnexport%20default%20%7B%5Cn%20%20data()%20%7B%5Cn%20%20%20%20return%20%7B%5Cn%20%20%20%20%20%20collapse%3A%20true%2C%5Cn%20%20%20%20%20%20sidebar%3A%20%5B%5Cn%20%20%20%20%20%20%20%20%7B%20path%3A%20'http%3A%2F%2Fwww.baidu.com'%2C%20meta%3A%20%7B%20title%3A%20'%E7%99%BE%E5%BA%A6'%20%7D%20%7D%2C%5Cn%20%20%20%20%20%20%20%20%7B%20path%3A%20'%2Faa'%2C%20hidden%3A%20true%2C%20meta%3A%20%7B%20title%3A%20'%E9%9A%90%E8%97%8F%E6%9D%A1%E7%9B%AE'%20%7D%20%7D%2C%5Cn%20%20%20%20%20%20%20%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20path%3A%20'%2Fauth'%2C%5Cn%20%20%20%20%20%20%20%20%20%20meta%3A%20%7B%20title%3A%20'%E6%9D%83%E9%99%90%E6%A8%A1%E5%9D%97%E7%AE%A1%E7%90%86'%20%7D%2C%5Cn%20%20%20%20%20%20%20%20%20%20children%3A%20%5B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%7B%20path%3A%20'%2Fauth%2Fuser'%2C%20meta%3A%20%7B%20title%3A%20'%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86'%20%7D%20%7D%2C%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%7B%20path%3A%20'%2Fauth%2Frole'%2C%20meta%3A%20%7B%20title%3A%20'%E8%A7%92%E8%89%B2%E7%AE%A1%E7%90%86'%20%7D%20%7D%2C%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%7B%20path%3A%20'%2Fauth%2Fresource'%2C%20meta%3A%20%7B%20title%3A%20'%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86'%20%7D%20%7D%2C%5Cn%20%20%20%20%20%20%20%20%20%20%5D%2C%5Cn%20%20%20%20%20%20%20%20%7D%2C%5Cn%20%20%20%20%20%20%5D%2C%5Cn%20%20%20%20%7D%3B%5Cn%20%20%7D%2C%5Cn%20%20methods%3A%20%7B%5Cn%20%20%20%20valueChange(val)%20%7B%5Cn%20%20%20%20%20%20this.collapse%20%3D%20val%3B%5Cn%20%20%20%20%7D%2C%5Cn%20%20%7D%2C%5Cn%7D%3B%5Cn%3C%2Fscript%3E%5Cn%5Cn%3Cstyle%20lang%3D%5C%22scss%5C%22%3E%5Cn.demo-layout-001%20%7B%5Cn%20%20height%3A%20400px%3B%5Cn%20%20width%3A%20100%25%3B%5Cn%20%20border%3A%201px%20solid%20%23429fff%3B%5Cn%7D%5Cn%3C%2Fstyle%3E%5Cn%22%2C%22template%22%3A%22%5Cn%20%20%3Cdiv%20class%3D%5C%22demo-layout-001%5C%22%3E%5Cn%20%20%20%20%3Cxv-layout%20v-model%3D%5C%22collapse%5C%22%20%40change%3D%5C%22valueChange%5C%22%20%3Asidebar%3D%5C%22sidebar%5C%22%3E%5Cn%20%20%20%20%20%20%3Cdiv%3Econtent%20%E5%86%85%E5%AE%B9001%3C%2Fdiv%3E%5Cn%20%20%20%20%20%20%3Cbr%20%2F%3E%5Cn%20%20%20%20%20%20%3Cdiv%3Econtent%20%E5%86%85%E5%AE%B9002%3C%2Fdiv%3E%5Cn%20%20%20%20%20%20%3Cspan%20slot%3D%5C%22header-left%5C%22%20style%3D%5C%22color%3Agreen%5C%22%3E%20%E8%87%AA%E5%AE%9A%E4%B9%89%E9%83%A8%E5%88%86%20%3C%2Fspan%3E%5Cn%20%20%20%20%20%20%3Cspan%20slot%3D%5C%22header-right%5C%22%20style%3D%5C%22color%3Ablue%5C%22%3E%20%E8%87%AA%E5%AE%9A%E4%B9%89%E9%83%A8%E5%88%86%20%3C%2Fspan%3E%5Cn%20%20%20%20%3C%2Fxv-layout%3E%5Cn%20%20%3C%2Fdiv%3E%5Cn%22%2C%22style%22%3A%22%5Cn.demo-layout-001%20%7B%5Cn%20%20height%3A%20400px%3B%5Cn%20%20width%3A%20100%25%3B%5Cn%20%20border%3A%201px%20solid%20%23429fff%3B%5Cn%7D%5Cn%22%2C%22styleLang%22%3A%22scss%22%2C%22script%22%3A%22%5Cnexport%20default%20%7B%5Cn%20%20data()%20%7B%5Cn%20%20%20%20return%20%7B%5Cn%20%20%20%20%20%20collapse%3A%20true%2C%5Cn%20%20%20%20%20%20sidebar%3A%20%5B%5Cn%20%20%20%20%20%20%20%20%7B%20path%3A%20'http%3A%2F%2Fwww.baidu.com'%2C%20meta%3A%20%7B%20title%3A%20'%E7%99%BE%E5%BA%A6'%20%7D%20%7D%2C%5Cn%20%20%20%20%20%20%20%20%7B%20path%3A%20'%2Faa'%2C%20hidden%3A%20true%2C%20meta%3A%20%7B%20title%3A%20'%E9%9A%90%E8%97%8F%E6%9D%A1%E7%9B%AE'%20%7D%20%7D%2C%5Cn%20%20%20%20%20%20%20%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20path%3A%20'%2Fauth'%2C%5Cn%20%20%20%20%20%20%20%20%20%20meta%3A%20%7B%20title%3A%20'%E6%9D%83%E9%99%90%E6%A8%A1%E5%9D%97%E7%AE%A1%E7%90%86'%20%7D%2C%5Cn%20%20%20%20%20%20%20%20%20%20children%3A%20%5B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%7B%20path%3A%20'%2Fauth%2Fuser'%2C%20meta%3A%20%7B%20title%3A%20'%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86'%20%7D%20%7D%2C%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%7B%20path%3A%20'%2Fauth%2Frole'%2C%20meta%3A%20%7B%20title%3A%20'%E8%A7%92%E8%89%B2%E7%AE%A1%E7%90%86'%20%7D%20%7D%2C%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%7B%20path%3A%20'%2Fauth%2Fresource'%2C%20meta%3A%20%7B%20title%3A%20'%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86'%20%7D%20%7D%2C%5Cn%20%20%20%20%20%20%20%20%20%20%5D%2C%5Cn%20%20%20%20%20%20%20%20%7D%2C%5Cn%20%20%20%20%20%20%5D%2C%5Cn%20%20%20%20%7D%3B%5Cn%20%20%7D%2C%5Cn%20%20methods%3A%20%7B%5Cn%20%20%20%20valueChange(val)%20%7B%5Cn%20%20%20%20%20%20this.collapse%20%3D%20val%3B%5Cn%20%20%20%20%7D%2C%5Cn%20%20%7D%2C%5Cn%7D%3B%5Cn%22%2C%22extra%22%3A%7B%7D%7D`
+        );
+      }
+    })();
+  ; </script>
+    </section>
+  <p>~</p>
